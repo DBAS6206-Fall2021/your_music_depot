@@ -1,0 +1,80 @@
+Steps for Local Development:
+	
+	1. Clone the repo.
+	
+	2. Open via VS Code
+	
+	3. In the terminal, run "composer update"
+	
+	4. Set-up the .env file (You can copy/paste from blog project from Lab2 WEBD)
+	
+		4.5. In the terminal, run "php artisan key:generate --show". Copy and Paste the key from the
+			 terminal into the .env file as the value for APP_KEY
+			
+	5. In the terminal, run "php artisan serve", at this point the app should run locally.
+	
+	6. Set up the remote connection for push/pulling to the repo run the following commands:
+		git init
+		git remote add origin https://github.com/DBAS6206-Fall2021/your_music_depot.git
+		
+
+
+Steps for Deployment:
+
+	1. Login to Heroku and Begin Setting up a new App,
+	   name it whatever you want but choose United States at the region.
+	   
+	2. For Deployment method choose "Connect via Github", Select our organization and 
+	   then the repo for deployment.
+	   
+		2.5. Enable Automatic Deployments and the Deploy Branch. (The deployment wont work at this point)
+			
+		
+	3. Create "Procfile" in the root directory of the App. Its contents should be:
+	   web: vendor/bin/heroku-php-apache2 public/
+	   Then Push the changes.
+	   
+	   3.5. May need to set up git remote run the following commands:
+			git init
+			git remote add origin https://github.com/DBAS6206-Fall2021/your_music_depot.git
+			
+			
+	   
+	4. In the settings of the Heroku deployment, open the Config Variables and Add two Entries
+	   APP_DEBUG : true								// Helps with errors later on						
+	   APP_KEY	 : *Paste the APP_KEY from .env*	// Must specify an encryption key
+	   
+	   
+
+Steps for Setting up the Database	(For MySQL)
+
+
+	1. Under the resources Tab of the Heroku deployment, select Find more addons,
+	   Install JawsDB MySQL (Select Free version).
+	   
+	2. Click on the now installed Addon to view the connection information for the next step.
+	
+	3. In the settings of the Heroku deployment, open the Config Variables Add the following Entries
+	   DB_Database 	: *Copy/Paste the database value
+	   DB_HOST 		: *Copy/Paste the host value
+	   DB_PASSWORD 	: *Copy/Paste the password value
+	   DB_USERNAME 	: *Copy/Paste the username value
+	   
+	   (Leave JawsDB_URL as is)
+	   
+	   
+	4. In the Project Code, go to config/database.php and edit mysql connection 
+		modify the line "'url' => env('DATABASE_URL')," so that it reads: "'url' => env('JAWSDB_URL','DATABASE_URL'),"
+		
+		
+	5. Dont forget to also set all of the new connection variables in the .env, inluding adding JAWSDB_URL
+		
+	6. In the terminal run, "php artisan migrate:refresh"
+	
+	7. Make sure to connect via mysql workbench as well
+	
+	8. Push to github
+	
+	At this point the database should be conneted
+	   
+	
