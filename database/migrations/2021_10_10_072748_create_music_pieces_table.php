@@ -15,7 +15,11 @@ class CreateMusicPiecesTable extends Migration
     {
         Schema::create('music_pieces', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('skill_level_id');
+            $table->string('title');
             $table->timestamps();
+
+            $table->foreign('skill_level_id')->references('id')->on('skill_levels');
         });
     }
 

@@ -15,7 +15,11 @@ class CreateLessonNotesTable extends Migration
     {
         Schema::create('lesson_notes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('lesson_instructor_id');
+            $table->text('note');
             $table->timestamps();
+
+            $table->foreign('lesson_instructor_id')->references('id')->on('lesson_instructors');
         });
     }
 

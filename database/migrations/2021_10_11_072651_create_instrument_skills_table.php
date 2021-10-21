@@ -15,7 +15,13 @@ class CreateInstrumentSkillsTable extends Migration
     {
         Schema::create('instrument_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('instrument_id');
+            $table->unsignedBigInteger('skill_level_id');
+            $table->integer('practice_hours');
             $table->timestamps();
+
+            $table->foreign('instrument_id')->references('id')->on('instruments');
+            $table->foreign('skill_level_id')->references('id')->on('skill_levels');
         });
     }
 

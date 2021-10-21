@@ -15,6 +15,7 @@ class CreateLessonTypesTable extends Migration
     {
         Schema::create('lesson_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type');
             $table->timestamps();
         });
     }

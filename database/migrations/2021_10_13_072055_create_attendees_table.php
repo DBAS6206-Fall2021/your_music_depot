@@ -15,7 +15,13 @@ class CreateAttendeesTable extends Migration
     {
         Schema::create('attendees', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('lesson_id');
+            $table->unsignedBigInteger('student_id');
+            $table->boolean('is_withdrawn');
             $table->timestamps();
+
+            $table->foreign('lesson_id')->references('id')->on('lessons');
+            $table->foreign('student_id')->references('id')->on('students');
         });
     }
 
