@@ -18,7 +18,6 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
         });

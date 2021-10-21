@@ -16,7 +16,6 @@ class CreateInstrumentsTable extends Migration
         Schema::create('instruments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->timestamps();
         });
     }
 

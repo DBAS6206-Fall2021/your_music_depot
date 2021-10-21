@@ -18,7 +18,6 @@ class CreateRoomsTable extends Migration
             $table->unsignedBigInteger('room_number')->unique();
             $table->unsignedBigInteger('room_type_id');
             $table->integer('capacity');
-            $table->timestamps();
 
             $table->foreign('room_type_id')->references('id')->on('room_types');
         });

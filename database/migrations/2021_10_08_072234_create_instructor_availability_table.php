@@ -19,7 +19,6 @@ class CreateInstructorAvailabilityTable extends Migration
             $table->string('weekday', 9);
             $table->time('start_availability');
             $table->time('end_availability');
-            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
         });
