@@ -1,3 +1,5 @@
+- should we just make all of the tables have a model, controller, and be a resource?
+
 - seed tables (not factory, the actual records for user_types, skill_levels, room_types etc...)
 
 - update UserFactory.php, User.php, RegisterController.php, and register.blade.php to match our case
