@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -69,15 +68,11 @@ class RegisterController extends Controller
         $typeId = UserTypes::typeId('A');
 
         return User::create([
-            'user_type_id' => $typeId, // A is a generic filler for now, can decide actual values later
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'phone_number' => "1234567891",
-            'address' => "22 SomePlace rd, ON",
-            'birth_date' => Carbon::now(),
-            'last_access' => Carbon::now(),
+            'user_type_id' => $typeId, // A is a generic filler for now, can decide actual values later
         ]);
     }
 }
