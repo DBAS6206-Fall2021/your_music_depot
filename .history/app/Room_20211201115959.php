@@ -17,17 +17,7 @@ class Room extends Model
 
     // Relationships
 
-    // Each Room may be used my multiple lessons
-    public function lessons()
-    {
-        return $this->hasMany(Lesson::class);
-    }
 
-    // Each room has 1 room type
-    public function roomType()
-    {
-        return $this->belongsTo(RoomType::class);
-    }
 
     // Functions
 

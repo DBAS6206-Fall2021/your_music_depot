@@ -53,21 +53,6 @@ class User extends Authenticatable
         return $this->belongsTo(UserType::class);
     }
 
-    public function instructorAvailability()
-    {
-        return $this->hasMany(InstructorAvailability::class);
-    }
-
-    public function student()
-    {
-        return $this->hasMany(Student::class);
-    }
-
-    public function lessonInstructors()
-    {
-        return $this->hasMany(LessonInstructor::class);
-    }
-
 
 
     // Functions

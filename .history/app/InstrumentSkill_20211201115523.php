@@ -16,17 +16,6 @@ class InstrumentSkill extends Model
 
     // Relationships
 
-    // Each Instrument Skill, as one skill level
-    public function instrument()
-    {
-        return $this->hasOne(Instrument::class);
-    }
-
-    // Each Instrument Skill, indicates a single student
-    public function student()
-    {
-        return $this->hasOne(Student::class);
-    }
     
     // Functions
 

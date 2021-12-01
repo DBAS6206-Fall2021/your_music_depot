@@ -25,7 +25,7 @@ class SkillLevel extends Model
     }
 
     // A skill level could describe a number of different 
-    //-Music Piece skill levels
+    //-instrument skill levels
     public function musicPieces()
     {
         return $this->hasMany(MusicPiece::class);

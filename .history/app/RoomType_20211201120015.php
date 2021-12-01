@@ -17,11 +17,6 @@ class RoomType extends Model
 
     // Relationships
 
-    // Each room type may indicate several rooms
-    public function rooms()
-    {
-        return $this->hasMany(Rooms::class);
-    }
 
 
     // Functions

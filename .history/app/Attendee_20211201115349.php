@@ -17,19 +17,5 @@ class Attendee extends Model
 
     // Relationships
 
-    // An attendee is apart of a lesson
-    public function lesson()
-    {
-        return $this->belongsTo(Lesson::class);
-    }
-
-    // An Attendee is a student
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
-
-
-    // Functions
 
 }

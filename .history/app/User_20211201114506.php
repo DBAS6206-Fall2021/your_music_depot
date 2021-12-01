@@ -9,8 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
-    // Properties
     
     /**
      * Manual Association with Users Table in the Database
@@ -26,6 +24,7 @@ class User extends Authenticatable
         'user_type_id', 'first_name', 'last_name', 'email', 'password', 'phone_number',
         'address', 'birth_date', 'last_access'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -45,32 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Relationships
-
     // Function to return the user Type
     public function userType()
     {
         return $this->belongsTo(UserType::class);
     }
-
-    public function instructorAvailability()
-    {
-        return $this->hasMany(InstructorAvailability::class);
-    }
-
-    public function student()
-    {
-        return $this->hasMany(Student::class);
-    }
-
-    public function lessonInstructors()
-    {
-        return $this->hasMany(LessonInstructor::class);
-    }
-
-
-
-    // Functions
 
     public function type()
     {

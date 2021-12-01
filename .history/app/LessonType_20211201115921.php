@@ -17,11 +17,6 @@ class LessonType extends Model
 
     // Relationships
 
-    // A lesson type may be used in several lessons
-    public function lessons()
-    {
-        return $this->hasMany(Lesson::class);
-    }
 
 
     // Functions

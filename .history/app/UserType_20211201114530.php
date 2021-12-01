@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserType extends Model
 {
-    // Properties
     /**
      * Manual Association with user_types Table in the Database
      */
@@ -14,18 +13,14 @@ class UserType extends Model
 
     public $timestamps = false; // Disable Timestamps
 
-    
-    // Relationships
-    
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
-
-    // Functions 
-
     public static function typeId($type)
     {
         return static::where('type', $type)->first()->id;
+    }
+
+    // Function to return the user Type
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 }

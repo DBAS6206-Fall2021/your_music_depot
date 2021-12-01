@@ -32,9 +32,9 @@ class Student extends Model
         return $this->hasMany(MusicPiece::class);
     }
 
-    public function instrumentSkills()
+    public function musicPieces()
     {
-        return $this->hasMany(InstrumentSkill::class);
+        return $this->hasMany(MusicPiece::class);
     }
 
 

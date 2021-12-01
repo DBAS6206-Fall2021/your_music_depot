@@ -15,10 +15,6 @@ class LessonNote extends Model
 
 
     // Relationships
-    public function lessonInstructor()
-    {
-        return $this->belongsTo(LessonInstructor::class);
-    }
 
 
 

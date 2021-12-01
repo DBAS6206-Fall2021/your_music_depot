@@ -26,7 +26,7 @@ class MusicPiece extends Model
     // Each music piece is performed at a certain skill level
     public function lesson()
     {
-        return $this->belongsTo(SkillLevel::class);
+        return $this->hasMany(SkillLevel::class);
     }
 
 

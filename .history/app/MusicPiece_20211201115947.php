@@ -16,18 +16,7 @@ class MusicPiece extends Model
 
 
     // Relationships
-    
-    // Each music piece is performed by a Student
-    public function Student()
-    {
-        return $this->belongsTo(Student::class);
-    }
 
-    // Each music piece is performed at a certain skill level
-    public function lesson()
-    {
-        return $this->belongsTo(SkillLevel::class);
-    }
 
 
     // Functions

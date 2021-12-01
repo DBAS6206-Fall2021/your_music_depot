@@ -19,31 +19,31 @@ class Lesson extends Model
     // Each lesson has one or more attendants
     public function attendee()
     {
-        return $this->hasMany(Attendee::class);
+        return $this->hasMany(Lesson::class);
     }
 
     // Each lesson has one or more instructors
     public function lessonInstructor()
     {
-        return $this->hasMany(LessonInstructor::class);
+        return $this->hasMany(Lesson::class);
     }
 
     // Each lesson is of a single type
     public function lessonType()
     {
-        return $this->belongsTo(LessonType::class);
+        return $this->hasMany(Lesson::class);
     }
 
     // Each lesson teaches a single instrument
     public function instrument()
     {
-        return $this->belongsTo(Instrument::class);
+        return $this->hasMany(Lesson::class);
     }
 
     // Each lesson occurs inside a single room
     public function room()
     {
-        return $this->belongsTo(Room::class);
+        return $this->hasMany(Lesson::class);
     }
 
     // Functions

@@ -15,11 +15,6 @@ class InstructorAvailability extends Model
 
     // Relationships
 
-    // An Availability belongs to a User (Instructor)
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     // Functions
 

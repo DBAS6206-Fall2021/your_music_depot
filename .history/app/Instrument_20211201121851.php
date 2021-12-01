@@ -22,12 +22,6 @@ class Instrument extends Model
         return $this->hasMany(Lesson::class);
     }
 
-    // An Instrument may be associated with many skill levels
-    public function instrumentSkill()
-    {
-        return $this->hasMany(InstrumentSkill::class);
-    }
-
     // Functions
 
 
