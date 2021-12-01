@@ -20,8 +20,6 @@ class User extends Authenticatable
         'address', 'birth_date', 'last_access'
     ];
 
-    protected $table = 'users';
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -41,19 +39,14 @@ class User extends Authenticatable
     ];
 
     // Function to return the user Type
-    public function userType()
-    {
-        return $this->belongsTo(UserType::class);
-    }
-
     public function type()
     {
-        return $this->userType->type;
+        return $this->belongsTo(UserType::class, 'id');
     }
 
     // Function to return the user Type
     public function isManagement()
     {
-        return $this->type() === 'M';
+        return $this->type() === '1';
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendee;
+use App\Student;
 use Illuminate\Http\Request;
 
-class AttendeesController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AttendeesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Attendee  $attendee
+     * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function show(Attendee $attendee)
+    public function show(Student $students)
     {
         //
     }
@@ -52,10 +52,10 @@ class AttendeesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Attendee  $attendee
+     * @param  \App\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function edit(Attendee $attendee)
+    public function edit(Student $students)
     {
         //
     }
@@ -64,10 +64,10 @@ class AttendeesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Attendee  $attendee
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Attendee $attendee)
+    public function update(Request $request, Student $student)
     {
         //
     }
@@ -75,10 +75,10 @@ class AttendeesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Attendee  $attendee
+     * @param  \App\Students  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Attendee $attendee)
+    public function destroy(Student $student)
     {
         //
     }

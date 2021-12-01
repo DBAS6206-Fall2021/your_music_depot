@@ -10,17 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'user_type_id', 'first_name', 'last_name', 'email', 'password', 'phone_number',
-        'address', 'birth_date', 'last_access'
-    ];
-
-    protected $table = 'users';
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -43,7 +33,7 @@ class User extends Authenticatable
     // Function to return the user Type
     public function userType()
     {
-        return $this->belongsTo(UserType::class);
+        return $this->belongsTo(UserType::class, 'id');
     }
 
     public function type()

@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserTypes extends Model
+class UserType extends Model
 {
     public $timestamps = false;
+
+    protected $table = 'user_types';
 
     public static function typeId($type)
     {
@@ -16,6 +18,6 @@ class UserTypes extends Model
     // Function to return the user Type
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'user_type_id');
     }
 }

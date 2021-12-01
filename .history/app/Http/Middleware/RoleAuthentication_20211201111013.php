@@ -23,7 +23,7 @@ class RoleAuthentication
         if($user->isManagement())
             return $next($request);
 
-        if($user->type === $role)
+        if($user->type == $role)
             return $next($request);
         
 

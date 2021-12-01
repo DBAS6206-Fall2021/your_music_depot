@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Attendee;
 use Illuminate\Http\Request;
 
-class AttendeesController extends Controller
+class AttendeeController extends Controller
 {
     /**
      * Display a listing of the resource.
