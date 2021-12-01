@@ -12,10 +12,4 @@ class UserTypes extends Model
     {
         return static::where('type', $type)->first()->id;
     }
-
-    // Function to return the user Type
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 }

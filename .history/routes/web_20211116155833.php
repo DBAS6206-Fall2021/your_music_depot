@@ -17,31 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
-
-// User Routes
-
-
-// Management Routes
-
-
-// Student Routes
-
-
-// Instructor Routes
-
-
-// Lesson Routes
-
-
-// Lesson Notes
-
-
-// Instrument Skills
-
-
-// Music Pieces
-
-
-//
+Route::get('/home', 'HomeController@index')->name('home');

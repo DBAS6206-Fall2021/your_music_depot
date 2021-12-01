@@ -37,16 +37,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    // Function to return the user Type
-    public function type()
-    {
-        return $this->user_type_id;
-    }
-
-    // Function to return the user Type
-    public function isManagement()
-    {
-        return $this->type() === '1';
-    }
 }

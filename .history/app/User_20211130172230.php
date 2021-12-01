@@ -47,6 +47,6 @@ class User extends Authenticatable
     // Function to return the user Type
     public function isManagement()
     {
-        return $this->type() === '1';
+        return $this->type() === 'M';
     }
 }
