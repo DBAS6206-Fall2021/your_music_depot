@@ -5,7 +5,7 @@
         @include('shared.banner')
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Client Dashboard</div>
+                <div class="card-header">{{ $type }} Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
