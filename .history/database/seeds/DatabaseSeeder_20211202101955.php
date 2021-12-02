@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(InstrumentsTableSeeder::class);
         // $this->command->info('instruments table seeded!');
 
-        // $this->call(LessonTypesTableSeeder::class);
-        // $this->command->info('lesson_types table seeded!');
+        $this->call(LessonTypesTableSeeder::class);
+        $this->command->info('lesson_types table seeded!');
     }
 }
