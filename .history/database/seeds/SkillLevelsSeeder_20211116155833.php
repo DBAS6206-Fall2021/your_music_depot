@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\SkillLevel;
+use App\SkillLevels;
 
 class SkillLevelsSeeder extends Seeder
 {
@@ -14,19 +14,19 @@ class SkillLevelsSeeder extends Seeder
     {
         DB::table('skill_levels')->delete();
         
-        SkillLevel::create(array(
+        SkillLevels::create(array(
             'description' => 'Novice',
         ));
-        SkillLevel::create(array(
+        SkillLevels::create(array(
             'description' => 'Advanced Beginner',
         ));
-        SkillLevel::create(array(
+        SkillLevels::create(array(
             'description' => 'Intermediate',
         ));
-        SkillLevel::create(array(
+        SkillLevels::create(array(
             'description' => 'Proficient',
         ));
-        SkillLevel::create(array(
+        SkillLevels::create(array(
             'description' => 'Master',
         ));
     }

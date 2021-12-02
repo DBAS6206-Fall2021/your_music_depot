@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
-use App\RoomType;
+use App\RoomTypes;
 
 class RoomTypesSeeder extends Seeder
 {
@@ -15,13 +14,13 @@ class RoomTypesSeeder extends Seeder
     {
         DB::table('room_types')->delete();
 
-        RoomType::create(array(
+        RoomTypes::create(array(
             'type' => 'A',
         ));
-        RoomType::create(array(
+        RoomTypes::create(array(
             'type' => 'B',
         ));
-        RoomType::create(array(
+        RoomTypes::create(array(
             'type' => 'C',
         ));
     }

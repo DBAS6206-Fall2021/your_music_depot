@@ -26,7 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => $password ?: $password = bcrypt('password'),
-        'phone_number' => $faker->unique()->bothify('##########'),
+        'phone_number' => $faker->unique()->randomNumber(10),
         'address' => $faker->unique()->streetAddress,
         'birth_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'last_access' => $faker->date($format = 'Y-m-d', $max = 'now'),
