@@ -1,0 +1,46 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Student extends Model
+{
+    // Properties
+    
+    /**
+     * Manual Association with students Table in the Database
+     */
+    protected $table = 'students';
+    public $timestamps = false; // Disable Timestamps
+
+
+    // Relationships
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function attendees()
+    {
+        return $this->hasMany(Attendee::class);
+    }
+
+    public function musicPieces()
+    {
+        return $this->hasMany(MusicPiece::class);
+    }
+
+    public function musicPieces()
+    {
+        return $this->hasMany(MusicPiece::class);
+    }
+
+
+
+    // Functions
+
+
+
+}
