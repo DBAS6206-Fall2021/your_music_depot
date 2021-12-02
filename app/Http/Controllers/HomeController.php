@@ -27,18 +27,25 @@ class HomeController extends Controller
     {
 
          $userType = Auth::user()->type();
+         $user = Auth::user();
 
             switch ($userType)
             {
                 case 'M':
-                    return view('management.dashboard');
+                    // return view('management.dashboard');
+                    $type = 'Management';
                     break;
                 case 'I':
-                    return view('instructor.dashboard');
+                    // return view('instructor.dashboard');
+                    $type = 'Instructor';
                     break;   
                 default:
-                    return view('home');
+                    // return view('home');
+                    $type = 'User';
                     break; 
             }
+
+            
+            return view('home', compact('user', 'type'));
     }
 }
