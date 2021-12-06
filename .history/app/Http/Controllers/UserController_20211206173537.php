@@ -30,9 +30,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-            
+        $this->authorize('view', $user);
         return view('users.show', compact('user'));
     }
 
@@ -44,10 +42,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-
-        return view('users.edit', compact('user'));
+        if (Auth::user()->can('view', $user))
+            return view('users.edit', compact('user'));
+        else
+        return redirect('/');
     }
 
     /**
@@ -59,9 +57,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-
+        if (Auth::user()->can('view', $user))
+            return view('users.edit', compact('user'));
+        else
+        return redirect('/');
+        
         $this->validate(request(), [
             'first_name' => ['required', 'string', 'max:100'],
             'last_name' => ['required', 'string', 'max:100'],
