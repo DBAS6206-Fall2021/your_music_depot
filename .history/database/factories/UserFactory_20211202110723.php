@@ -20,18 +20,12 @@ $factory->define(User::class, function (Faker $faker) {
     static $password;
 
     return [
-        'user_type_id' => 3,
+        'user_type_id' => 1,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => $password ?: $password = bcrypt('password'),
-        'phone_number' => $faker->unique()->bothify('##########'),
-        'address' => $faker->unique()->streetAddress,
-        'birth_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'last_access' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'remember_token' => Str::random(10),
-        'created_at' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'updated_at' => $faker->date($format = 'Y-m-d', $max = 'now'),
     ];
 });

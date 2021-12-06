@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\UserType;
+use App\UserTypes;
 
 class UserTypesSeeder extends Seeder
 {
@@ -14,13 +14,13 @@ class UserTypesSeeder extends Seeder
     {
         DB::table('user_types')->delete();
 
-        UserType::create(array(
-            'type' => 'M',
+        UserTypes::create(array(
+            'type' => 'A',
         ));
-        UserType::create(array(
-            'type' => 'I',
+        UserTypes::create(array(
+            'type' => 'B',
         ));
-        UserType::create(array(
+        UserTypes::create(array(
             'type' => 'C',
         ));
     }

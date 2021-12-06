@@ -20,7 +20,7 @@ $factory->define(User::class, function (Faker $faker) {
     static $password;
 
     return [
-        'user_type_id' => 3,
+        'user_type_id' => 2,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
