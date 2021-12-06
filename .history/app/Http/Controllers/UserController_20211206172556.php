@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class UserController extends Controller
@@ -30,9 +29,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-            
+        $this->authorize('view', $user);
         return view('users.show', compact('user'));
     }
 
@@ -44,9 +41,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-
+        $this->can('view', $user);
         return view('users.edit', compact('user'));
     }
 
@@ -59,9 +54,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/');
-
+        $this->authorize('view', $user);
         $this->validate(request(), [
             'first_name' => ['required', 'string', 'max:100'],
             'last_name' => ['required', 'string', 'max:100'],
