@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="bg-white m-0 p-0">
-                <!-- @include('schedule.show') -->
-                @include('availability.update')
+                @include('availability.show')
+                <!-- @include('availability.update') -->
             </div>
         </div>
     </div>
