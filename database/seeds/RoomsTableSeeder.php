@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 use App\Room;
 
 class RoomsTableSeeder extends Seeder
@@ -12,33 +13,47 @@ class RoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('instruments')->delete();
+        DB::table('rooms')->delete();
         
+        // Individual rooms
         Room::create(array(
-            'room_number' => 'Guitar',
-            'room_type_id' => 'Guitar',
-            'capacity' => 'Guitar',
+            'room_number' => 201,
+            'room_type_id' => 1,
+            'capacity' => 1,
         ));
         Room::create(array(
-            'name' => 'Drums',
+            'room_number' => 202,
+            'room_type_id' => 1,
+            'capacity' => 1,
         ));
         Room::create(array(
-            'name' => 'Piano',
+            'room_number' => 203,
+            'room_type_id' => 1,
+            'capacity' => 1,
         ));
         Room::create(array(
-            'name' => 'Violin',
+            'room_number' => 204,
+            'room_type_id' => 1,
+            'capacity' => 1,
+        ));
+
+        // Group rooms with pianos
+        Room::create(array(
+            'room_number' => 101,
+            'room_type_id' => 3,
+            'capacity' => 6,
         ));
         Room::create(array(
-            'name' => 'Saxophone',
+            'room_number' => 102,
+            'room_type_id' => 3,
+            'capacity' => 6,
         ));
+
+        // non-piano group rooms
         Room::create(array(
-            'name' => 'Trumpet',
-        ));
-        Room::create(array(
-            'name' => 'Recorder',
-        ));
-        Room::create(array(
-            'name' => 'Triangle',
+            'room_number' => 103,
+            'room_type_id' => 2,
+            'capacity' => 4,
         ));
     }
 }
