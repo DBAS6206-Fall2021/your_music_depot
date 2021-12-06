@@ -10,7 +10,7 @@ $days = [
         ];
 @endphp
 
-<div class="row">
+<div class="row p-0 m-0">
     <table class="table align-center col-10">
         <tbody>
             @foreach ($days as $day) 
@@ -19,7 +19,7 @@ $days = [
                 <td><label for="{{$day}}-start"> Start Time: </label> <input type="time" id="{{$day}}-start" name="{{$day}}-start" min="08:00" max="20:00"></td>
                 <td><label for="{{$day}}-end"> End Time: </label> <input type="time" id="{{$day}}-end" name="{{$day}}-end" min="08:00" max="20:00"></td>
             </tr>
-            @endfor
+            @endforeach
         </tbody>
     </table>
     <div class="text-center">
