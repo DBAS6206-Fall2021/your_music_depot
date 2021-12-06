@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Some are commented out b/c they are already seeded and are in a constraint chain
+
         $this->call(RoomTypesSeeder::class);
         $this->command->info('room_types table seeded!');
 
@@ -25,5 +27,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(LessonTypesTableSeeder::class);
         $this->command->info('lesson_types table seeded!');
+
+        $this->call(RoomsTableSeeder::class);
+        $this->command->info('rooms table seeded!');
     }
 }
