@@ -60,7 +60,7 @@ class UserController extends Controller
             'last_name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone_number' => ['required', 'string', 'min:10', 'max:10'],
+            'phoneNumber' => ['required', 'string', 'min:10', 'max:10'],
             'address' => ['required', 'string', 'max:255'],
         ]);
 
@@ -70,7 +70,7 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'phone_number' => $request->phone_number,
+            'phone_number' => $request->phoneNumber,
             'address' => $request->address,
         ]);
 
