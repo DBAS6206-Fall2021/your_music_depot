@@ -65,12 +65,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+    <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
     <div class="col-md-6">
-        <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ Auth::check() ? $user->phone_number : old('phone_number') }}" required autocomplete="phone_number">
+        <input id="phoneNumber" type="tel" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" value="{{ Auth::check() ? $user->phone_number : old('phoneNumber') }}" required autocomplete="phoneNumber">
 
-        @error('phone_number')
+        @error('phoneNumber')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -92,14 +92,14 @@
     </div>
 </div>
 
-@if(!Auth::check())
+@if(! Auth::check )
 <div class="form-group row">
-    <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
+    <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
     <div class="col-md-6">
-        <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ Auth::check() ? $user->birth_date : old('birth_date') }}" required autocomplete="birth_date">
+        <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ Auth::check() ? $user->address : old('address') }}" required autocomplete="address">
 
-        @error('birth_date')
+        @error('address')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
