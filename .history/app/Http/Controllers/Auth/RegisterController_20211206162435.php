@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone_number' => ['required', 'string', 'min:10', 'max:10', 'unique:users'],
             'address' => ['required', 'string', 'max:255', 'unique:users'],
-            'birth_date' => ['required', 'date', 'after:1900-01-01', 'before:tomorrow'],
+            'birth_date' => ['required', 'date', 'after:1900-01-01'],
         ]);
     }
 
@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'phone_number' => $data['phone_number'],
+            'phone_number' => $data['phone_numberumber'],
             'address' => $data['address'],
             'birth_date' => $data['birth_date'],
             'last_access' => Carbon::now(),

@@ -16,13 +16,13 @@ class RoomTypesSeeder extends Seeder
         DB::table('room_types')->delete();
 
         RoomType::create(array(
-            'type' => 'A',
+            'type' => 'I',
         ));
         RoomType::create(array(
-            'type' => 'B',
+            'type' => 'G',
         ));
         RoomType::create(array(
-            'type' => 'C',
+            'type' => 'P',
         ));
     }
 }

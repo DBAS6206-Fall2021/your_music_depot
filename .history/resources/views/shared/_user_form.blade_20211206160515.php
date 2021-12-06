@@ -65,12 +65,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+    <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
     <div class="col-md-6">
-        <input id="phone_number" type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ Auth::check() ? $user->phone_number : old('phone_number') }}" required autocomplete="phone_number">
+        <input id="phoneNumber" type="tel" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" value="{{ Auth::check() ? $user->phone_number : old('phoneNumber') }}" required autocomplete="phoneNumber">
 
-        @error('phone_number')
+        @error('phoneNumber')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -92,18 +92,18 @@
     </div>
 </div>
 
-@if(!Auth::check())
-<div class="form-group row">
-    <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
+@if(Auth::check() != false)
+    <div class="form-group row">
+        <label for="birthDate" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
 
-    <div class="col-md-6">
-        <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ Auth::check() ? $user->birth_date : old('birth_date') }}" required autocomplete="birth_date">
+        <div class="col-md-6">
+            <input id="birthDate" type="date" class="form-control @error('birthDate') is-invalid @enderror" name="birthDate" value="{{ Auth::check() ? $user->birth_date : old('birthDate') }}" required autocomplete="birthDate">
 
-        @error('birth_date')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+            @error('birthDate')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
     </div>
-</div>
-@endif
+@  endif
