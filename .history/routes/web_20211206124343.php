@@ -21,10 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 
 // User Routes
-Route::get('/users', 'UserController@index');
-Route::get('/users/{user}', 'UserController@show');
-Route::get('/users/edit/{user}', 'UserController@edit');
-Route::post('/users/update/{user}', 'UserController@update');
+Route::get('/user/edit/{user}', 'UserController@edit');
 
 // Management Routes
 

@@ -25,6 +25,6 @@
             </div>
         </div>
         <a class="btn btn-primary btn-lg text-light"
-            href="/users/edit/{{ $user->id }}">Edit</a>
+            href="/{{ $type }}/update">Edit</a>
     </div>
 </div>

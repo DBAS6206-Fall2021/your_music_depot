@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary btn-lg text-light"
-            href="/users/edit/{{ $user->id }}">Edit</a>
+        <a class="btn btn-primary btn-lg">Edit</a>
+        <button class="btn btn-primary btn-lg" type="button">Edit</button>
     </div>
 </div>
