@@ -29,7 +29,7 @@ $days = [
                         </span>
                     @enderror
                         <option value="">N/A</option>
-                        @for ($i = 8; $i <= 20; $i++)
+                        @for ($i = 8; $i < 20; $i++)
                             {{$i = sprintf("%02d", $i)}}
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->start_availability == $i.':00:00')
@@ -53,7 +53,7 @@ $days = [
                             </span>
                         @enderror
                         <option value="">N/A</option>
-                        @for ($i = 8; $i <= 20; $i++)
+                        @for ($i = 8; $i < 20; $i++)
                         {{$i = sprintf("%02d", $i)}}
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->end_availability == $i.':00:00')
