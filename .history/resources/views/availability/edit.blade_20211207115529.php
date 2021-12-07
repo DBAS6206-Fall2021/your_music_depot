@@ -23,11 +23,7 @@ $days = [
                 <td>
                     <label for="{{$day}}[start]"> Start Time: </label> 
                     <select id="{{$day}}[start]" name="{{$day}}[start]">
-                    @error('{{$day}}[start]')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
                             {{$i = sprintf("%02d", $i)}}
@@ -47,11 +43,7 @@ $days = [
                 <td>
                     <label for="{{$day}}[end]"> End Time: </label> 
                     <select id="{{$day}}[end]" name="{{$day}}[end]">
-                        @error('{{$day}}[end]')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
                         {{$i = sprintf("%02d", $i)}}

@@ -66,10 +66,11 @@ class InstructorAvailabilityController extends Controller
     {
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
-
+        // foreach($request->all() as $key => $param)  
+        // {  
             $this->validate(request(), [
                 'Sunday.start' => ['sometimes', 'nullable','required_with:Sunday.end','date_format:H:i:s', 'before:Sunday.end'],
-                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],      
+                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],
                 'Monday.start' => ['sometimes', 'nullable','required_with:Monday.end','date_format:H:i:s', 'before:Monday.end'],
                 'Monday.end' => ['sometimes','nullable','required_with:Monday.start','date_format:H:i:s', 'after:Monday.start'],
                 'Tuesday.start' => ['sometimes', 'nullable','required_with:Tuesday.end','date_format:H:i:s', 'before:Tuesday.end'],
@@ -84,6 +85,7 @@ class InstructorAvailabilityController extends Controller
                 'Saturday.end' => ['sometimes','nullable','required_with:Saturday.start','date_format:H:i:s', 'after:Saturday.start' ],
                 
             ]);
+        // }  
 
         foreach($request->all() as $key => $param)
         {
@@ -96,17 +98,33 @@ class InstructorAvailabilityController extends Controller
             }
             else
             {
-                $availability = $user->instructorAvailability()->get();
-                //$availability = InstructorAvailability::where([['user_id', '=', $user->id], ['weekday', '=', $key]]);
-
-                if (($a = $availability->firstWhere('weekday', $key)) != null){
-                    //dd($a->id);
-                    InstructorAvailability::destroy($a->id);
-                }
+                // $availability = InstructorAvailability::where([['user_id', '=', $user->id], ['weekday', '=', $key]]);
+                // if ($availability){
+                //     InstructorAvailability::destroy($availability->id);
+                // }
             }
         }
+        //dump($request->Monday);
+        //dump($request->input($key.'.start'));
+        // $input = $request->all();
+        // dump(input->get("Monday"));
+        //dump($request->Monday['start'])
+
+        foreach($request->all() as $key => $param)
+        {
+            //dump(request());
+            dump($key);
+            dump($request->input($key.'.start'));
+            dump($request->input($key.'.end'));
+        }
+
+        // if (($a = $request->Monday)[0] === null)
+        //     dump(true);
+        // else 
+        //     dump(false);    
         
-        return view('availability.show', compact('availability', 'user'));
+        
+        //return view('availability.show', compact('availability', 'user'));
     }
 
     /**

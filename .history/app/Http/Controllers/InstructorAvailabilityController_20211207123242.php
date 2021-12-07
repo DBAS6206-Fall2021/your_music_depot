@@ -66,47 +66,58 @@ class InstructorAvailabilityController extends Controller
     {
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
-
+        // foreach($request->all() as $key => $param)  
+        // {  
             $this->validate(request(), [
                 'Sunday.start' => ['sometimes', 'nullable','required_with:Sunday.end','date_format:H:i:s', 'before:Sunday.end'],
-                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],      
+                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],
                 'Monday.start' => ['sometimes', 'nullable','required_with:Monday.end','date_format:H:i:s', 'before:Monday.end'],
-                'Monday.end' => ['sometimes','nullable','required_with:Monday.start','date_format:H:i:s', 'after:Monday.start'],
+                'Monday.end' => ['required','date_format:H:i:s', 'after:Monday.start'],
                 'Tuesday.start' => ['sometimes', 'nullable','required_with:Tuesday.end','date_format:H:i:s', 'before:Tuesday.end'],
-                'Tuesday.end' => ['sometimes','nullable','required_with:Tuesday.start','date_format:H:i:s', 'after:Tuesday.start'],
+                'Tuesday.end' => ['required','date_format:H:i:s', 'after:Tuesday.start'],
                 'Wednesday.start' => ['sometimes', 'nullable','required_with:Wednesday.end','date_format:H:i:s', 'before:Wednesday.end'],
-                'Wednesday.end' => ['sometimes','nullable','required_with:Wednesday.start','date_format:H:i:s', 'after:Wednesday.start'],
+                'Wednesday.end' => ['required','date_format:H:i:s', 'after:Wednesday.start'],
                 'Thursday.start' => ['sometimes', 'nullable','required_with:Thursday.end','date_format:H:i:s', 'before:Thursday.end'],
-                'Thursday.end' => ['sometimes','nullable','required_with:Thursday.start','date_format:H:i:s', 'after:Thursday.start'],
+                'Thursday.end' => ['required','date_format:H:i:s', 'after:Thursday.start'],
                 'Friday.start' => ['sometimes', 'nullable','required_with:Friday.end','date_format:H:i:s', 'before:Friday.end'],
-                'Friday.end' => ['sometimes','nullable','required_with:Friday.start','date_format:H:i:s', 'after:Friday.start'],
+                'Friday.end' => ['required','date_format:H:i:s', 'after:Friday.start'],
                 'Saturday.start' => ['sometimes', 'nullable','required_with:Saturday.end','date_format:H:i:s', 'before:Saturday.end'],
-                'Saturday.end' => ['sometimes','nullable','required_with:Saturday.start','date_format:H:i:s', 'after:Saturday.start' ],
+                'Saturday.end' => ['required','date_format:H:i:s', 'after:Saturday.start' ],
                 
             ]);
+        // }  
+
+        // foreach($request->all() as $key => $param)
+        // {
+        //     if($request->input($key.'.start') != null && $request->input($key.'.end') != null)
+        //     {
+        //         InstructorAvailability::updateOrCreate(
+        //             ['user_id' => $user->id, 'weekday' => $key],
+        //             ['start_availability' => $request->input($key.'.start'), 'end_availability' => $request->input($key.'.end')]
+        //         );
+        //     }
+        // }
+        //dump($request->Monday);
+        //dump($request->input($key.'.start'));
+        // $input = $request->all();
+        // dump(input->get("Monday"));
+        //dump($request->Monday['start'])
 
         foreach($request->all() as $key => $param)
         {
-            if($request->input($key.'.start') != null && $request->input($key.'.end') != null)
-            {
-                InstructorAvailability::updateOrCreate(
-                    ['user_id' => $user->id, 'weekday' => $key],
-                    ['start_availability' => $request->input($key.'.start'), 'end_availability' => $request->input($key.'.end')]
-                );
-            }
-            else
-            {
-                $availability = $user->instructorAvailability()->get();
-                //$availability = InstructorAvailability::where([['user_id', '=', $user->id], ['weekday', '=', $key]]);
-
-                if (($a = $availability->firstWhere('weekday', $key)) != null){
-                    //dd($a->id);
-                    InstructorAvailability::destroy($a->id);
-                }
-            }
+            //dump(request());
+            dump($key);
+            dump($request->input($key.'.start'));
+            dump($request->input($key.'.end'));
         }
+
+        // if (($a = $request->Monday)[0] === null)
+        //     dump(true);
+        // else 
+        //     dump(false);    
         
-        return view('availability.show', compact('availability', 'user'));
+        
+        //return view('availability.show', compact('availability', 'user'));
     }
 
     /**

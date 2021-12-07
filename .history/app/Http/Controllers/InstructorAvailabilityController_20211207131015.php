@@ -69,7 +69,7 @@ class InstructorAvailabilityController extends Controller
 
             $this->validate(request(), [
                 'Sunday.start' => ['sometimes', 'nullable','required_with:Sunday.end','date_format:H:i:s', 'before:Sunday.end'],
-                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],      
+                'Sunday.end' => ['sometimes','nullable','required_with:Sunday.start','date_format:H:i:s', 'after:Sunday.start'],
                 'Monday.start' => ['sometimes', 'nullable','required_with:Monday.end','date_format:H:i:s', 'before:Monday.end'],
                 'Monday.end' => ['sometimes','nullable','required_with:Monday.start','date_format:H:i:s', 'after:Monday.start'],
                 'Tuesday.start' => ['sometimes', 'nullable','required_with:Tuesday.end','date_format:H:i:s', 'before:Tuesday.end'],
