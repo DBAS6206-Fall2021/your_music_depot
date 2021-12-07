@@ -31,7 +31,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         if (Auth::user()->cant('view', $user))
-            return redirect('/home');
+            return redirect('/');
             
         return view('users.show', compact('user'));
     }
