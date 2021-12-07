@@ -64,8 +64,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if (Auth::user()->cant('view', $user))
-            return redirect('/home');
+        //dd($request);
 
         foreach($request->all() as $key => $param)
         {

@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="bg-white m-0 p-0">
-                
+                <!-- @include('availability.edit') -->
             </div>
         </div>
     </div>
