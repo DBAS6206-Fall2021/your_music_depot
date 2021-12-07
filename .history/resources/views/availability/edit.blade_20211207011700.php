@@ -29,10 +29,10 @@ $days = [
                                 @if($a->start_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>    
@@ -40,17 +40,17 @@ $days = [
                 
                 <td>
                     <label for="{{$day}}[end]"> End Time: </label> 
-                    <select id="{{$day}}[end]" name="{{$day}}[end]">
+                    <select id="{{$day}}" name="{{$day}}">
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->end_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>  

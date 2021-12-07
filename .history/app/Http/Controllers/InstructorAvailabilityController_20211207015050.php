@@ -63,35 +63,29 @@ class InstructorAvailabilityController extends Controller
     {
         //dd($request);
 
-        foreach($request->all() as $key => $param)
-        {
-            if($request->input($key.'.start') != null && $request->input($key.'.end') != null)
-            {
-                InstructorAvailability::updateOrCreate(
-                    ['user_id' => $user->id, 'weekday' => $key],
-                    ['start_availability' => $request->input($key.'.start'), 'end_availability' => $request->input($key.'.end')]
-                );
-            }
-        }
-        // dump($request->Monday);
-        //dump($request->input($key.'.start'));
-        // $input = $request->all();
-        // dump(input->get("Monday"));
-        //dump($request->Monday['start'])
-
-        // foreach($request->all() as $key => $param)
+        // foreach($request->all() as $param)
         // {
-        //     dump($key);
-        //     dump($request->input($key.'.start'));
+        //     if($param['start'] != null && $param['end'] != null)
+        //     {
+        //         InstructorAvailability::updateOrCreate(
+        //             ['user_id' => $user->id, 'weekday' => $request->monday_start],
+        //             ['']
+        //         );
+        //     }
         // }
-
-        // if (($a = $request->Monday)[0] === null)
-        //     dump(true);
-        // else 
-        //     dump(false);    
+        dump(head($request));
+        foreach($request->all() as $param)
+        {
+            
+            dump(array_keys($request));
+        }
+        if (($a = $request->Sunday)['start'] === null)
+            dump(true);
+        else 
+            dump(false);    
         
         
-        return view('availability.show', compact('availability', 'user'));
+        //return view('availability.show', compact('availability', 'user'));
     }
 
     /**

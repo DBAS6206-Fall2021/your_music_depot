@@ -32,7 +32,7 @@ $days = [
                                 <option value="{{$i}}:00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>    
@@ -50,7 +50,7 @@ $days = [
                                 <option value="{{$i}}:00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>  

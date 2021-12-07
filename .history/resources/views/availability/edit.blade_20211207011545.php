@@ -21,36 +21,36 @@ $days = [
                     {{$day}}        
                 </td>
                 <td>
-                    <label for="{{$day}}[start]"> Start Time: </label> 
-                    <select id="{{$day}}[start]" name="{{$day}}[start]">
+                    <label for="{{$day}}"> Start Time: </label> 
+                    <select id="{{$day}}" name="{{$day}}">
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->start_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>    
                 </td>
                 
                 <td>
-                    <label for="{{$day}}[end]"> End Time: </label> 
-                    <select id="{{$day}}[end]" name="{{$day}}[end]">
+                    <label for="{{$day}}"> End Time: </label> 
+                    <select id="{{$day}}" name="{{$day}}">
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->end_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>  
