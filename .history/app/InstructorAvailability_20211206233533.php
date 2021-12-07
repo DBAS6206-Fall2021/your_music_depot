@@ -23,14 +23,9 @@ class InstructorAvailability extends Model
 
     // Functions
 
-    public function hasStartAvailability($time)
+    public function hasAvailability($time)
     {
-        return $this->where('start_availability', $time)->count() > 0;
-    }
-
-    public function hasEndAvailability($time)
-    {
-        return $this->where('end_availability', $time)->count() > 0;
+        return $this->where('start_availability', '08:00:00')->count() > 0;
     }
 
 }

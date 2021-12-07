@@ -24,7 +24,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/users', 'UserController@index');
 Route::get('/users/{user}', 'UserController@show');
 Route::get('/users/edit/{user}', 'UserController@edit');
-Route::post('/users/edit/{user}', 'UserController@update');
+Route::post('/users/update/{user}', 'UserController@update');
 
 // Management Routes
 
@@ -33,10 +33,10 @@ Route::post('/users/edit/{user}', 'UserController@update');
 
 
 // Instructor Routes
-Route::get('/users/{user}/availability', 'InstructorAvailabilityController@show');
-Route::get('/users/{user}/availability/edit', 'InstructorAvailabilityController@edit');
-Route::post('/users/{user}/availability', 'InstructorAvailabilityController@update');
-
+Route::get('/users/{user}/availability', 'InstructorAvailability@show');
+Route::get('/users/{user}/availability/edit', 'InstructorAvailability@edit');
+Route::post('/users/{user}/availability', 'InstructorAvailability@store');
+Route::post('/users/{user}/availability/edit', 'InstructorAvailability@update');
 // Lesson Routes
 
 

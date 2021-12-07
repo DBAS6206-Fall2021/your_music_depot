@@ -61,9 +61,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
-
-        
+        dd($request->sunday_start);
         
         return view('availability.show', compact('availability', 'user'));
     }

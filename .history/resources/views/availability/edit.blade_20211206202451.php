@@ -35,12 +35,26 @@ $days = [
                 </td>
                 <td>
                     <label for="{{$day}}-start"> Start Time: </label> 
-                    <input list="times" id="{{$day}}-start" name="{{$day}}-start">
+                    <select id="{{$day}}-start" name="{{$day}}-start">
+                        <option value="08:00:00">
+                        <option value="09:00:00">
+                        <option value="10:00:00">
+                        <option value="11:00:00">
+                        <option value="12:00:00">
+                        <option value="13:00:00">
+                        <option value="14:00:00">
+                        <option value="15:00:00">
+                        <option value="16:00:00">
+                        <option value="17:00:00">
+                        <option value="18:00:00">
+                        <option value="19:00:00">
+                        <option value="20:00:00">
+                    </select>    
                 </td>
                 
                 <td>
                     <label for="{{$day}}-end"> End Time: </label> 
-                    <input list="times" id="{{$day}}-end" name="{{$day}}-end">
+                    <input list="times" id="{{$day}}-end" name="{{$day}}-end" disabled>
                 </td>
             </tr>
             @endforeach

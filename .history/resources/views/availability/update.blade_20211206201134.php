@@ -35,12 +35,12 @@ $days = [
                 </td>
                 <td>
                     <label for="{{$day}}-start"> Start Time: </label> 
-                    <input list="times" id="{{$day}}-start" name="{{$day}}-start">
+                    <input list="times" id="{{$day}}-start" name="{{$day}}-start" value=times[5]>
                 </td>
                 
                 <td>
                     <label for="{{$day}}-end"> End Time: </label> 
-                    <input list="times" id="{{$day}}-end" name="{{$day}}-end">
+                    <input list="times" id="{{$day}}-end" name="{{$day}}-end" disabled>
                 </td>
             </tr>
             @endforeach

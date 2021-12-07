@@ -14,7 +14,7 @@ $days = [
     <table class="table align-center col-10">
         <tbody>
             <datalist id="times">
-                <option value="08:00:00">
+                <option value="08:00:00" selected>
                 <option value="09:00:00">
                 <option value="10:00:00">
                 <option value="11:00:00">
