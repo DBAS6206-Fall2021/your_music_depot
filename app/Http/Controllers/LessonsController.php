@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LessonsController extends Controller
 {
@@ -25,6 +27,8 @@ class LessonsController extends Controller
     public function create()
     {
         //
+
+        return view('lessons.create');
     }
 
     /**
