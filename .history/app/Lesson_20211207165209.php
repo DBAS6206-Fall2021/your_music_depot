@@ -17,9 +17,9 @@ class Lesson extends Model
     // Relationships
 
     // Each lesson has one or more attendants
-    public function students()
+    public function attendee()
     {
-        return $this->belongsToMany(Student::class, Attendee::class);
+        return $this->hasMany(Attendee::class);
     }
 
     // Each lesson has one or more instructors

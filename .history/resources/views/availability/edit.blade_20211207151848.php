@@ -1,4 +1,7 @@
-@php
+@extends('layouts.app')
+
+@section('content')
+{{
 $days = [
             'Sunday',
             'Monday',
@@ -7,8 +10,8 @@ $days = [
             'Thursday',
             'Friday',
             'Saturday'
-        ];
-@endphp
+        ]
+    }}
 
 <div class="row p-0 m-0">
     <table class="table align-center col-10">
@@ -76,3 +79,4 @@ $days = [
     </div>
     </form>
 </div>
+@endsection

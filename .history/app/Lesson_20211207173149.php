@@ -19,7 +19,7 @@ class Lesson extends Model
     // Each lesson has one or more attendants
     public function students()
     {
-        return $this->belongsToMany(Student::class, Attendee::class);
+        return $this->belongsToMany(Student:class, Attendee::class);
     }
 
     // Each lesson has one or more instructors

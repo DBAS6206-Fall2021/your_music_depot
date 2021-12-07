@@ -30,7 +30,7 @@ $days = [
                     @enderror
                         <option value="">N/A</option>
                         @for ($i = 8; $i <= 20; $i++)
-                            {{ $i = sprintf("%02d", $i )}}
+                             $i = sprintf("%02d", $i )
                             @if (($a = $availability->firstWhere('weekday', $day)) != null)
                                 @if($a->start_availability == $i.':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>

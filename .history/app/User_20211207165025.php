@@ -58,9 +58,9 @@ class User extends Authenticatable
         return $this->hasMany(InstructorAvailability::class);
     }
 
-    public function students()
+    public function student()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->hasMany(Student::class);
     }
 
     public function lessons()
