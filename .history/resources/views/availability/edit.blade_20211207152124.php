@@ -1,14 +1,17 @@
+@extends('layouts.app')
+
 @php
 $days = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday'
-        ];
-@endphp
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+    ];
+    @endphp
+    @section('content')
 
 <div class="row p-0 m-0">
     <table class="table align-center col-10">
@@ -70,9 +73,10 @@ $days = [
             </tr>
             @endforeach
         </tbody>
+        <div class="text-center">
+            <button id="updateButton" type="submit" class="btn btn-primary">Update Availability</button>
+        </div>
+        </form>
     </table>
-    <div class="text-center">
-        <button id="updateButton" type="submit" class="btn btn-primary">Update Availability</button>
-    </div>
-    </form>
 </div>
+@endsection

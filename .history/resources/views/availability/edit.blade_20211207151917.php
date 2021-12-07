@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 @php
 $days = [
             'Sunday',
@@ -76,3 +79,4 @@ $days = [
     </div>
     </form>
 </div>
+@endsection
