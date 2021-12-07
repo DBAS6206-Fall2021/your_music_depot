@@ -41,7 +41,7 @@ Route::post('/users/{user}/availability', 'InstructorAvailabilityController@upda
 
 
 // Lesson Notes
-
+Route::get('/lessons/create', 'LessonsController@create');
 
 // Instrument Skills
 
