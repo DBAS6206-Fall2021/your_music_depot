@@ -18,7 +18,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function show(User $user)
     {
-        $availability = $user->instructorAvailability()->orderBy('start_availability', 'asc');
+        $availability = $user->instructorAvailability()->orderBy('start_availability', 'asc')->get();
 
         return view('availability.show', compact('availability', 'user'));
     }

@@ -1,4 +1,4 @@
-<div class="row">
+<div>
     <div class="p-5 mb-4 bg-white rounded-3">
         <h1>{{ $user->first_name . ' ' . $user->last_name }}</h1>
         <div class="d-flex">
