@@ -29,10 +29,10 @@ $days = [
                                 @if($a->start_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>    
@@ -47,10 +47,10 @@ $days = [
                                 @if($a->end_availability == sprintf("%02d", $i).':00:00')
                                 <option value="{{$i}}:00:00" selected>{{$i}}:00:00</option>
                                 @else
-                                <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                                <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                                 @endif    
                             @else
-                            <option value="{{$i}}:00:00">{{$i}}:00:00</option>
+                            <option value={{$i}}.":00:00">{{$i}}:00:00</option>
                             @endif
                         @endfor    
                     </select>  

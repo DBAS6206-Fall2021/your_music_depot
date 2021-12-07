@@ -65,11 +65,11 @@ class InstructorAvailabilityController extends Controller
 
         foreach($request->all() as $key => $param)
         {
-            if($request->input($key.'.start') != null && $request->input($key.'.end') != null)
+            if($request->input($key.'.start' != null && $request->input($key.'.end' != null)
             {
                 InstructorAvailability::updateOrCreate(
                     ['user_id' => $user->id, 'weekday' => $key],
-                    ['start_availability' => $request->input($key.'.start'), 'end_availability' => $request->input($key.'.end')]
+                    ['start_availability' => $param['start'], 'end_availability' => $param['end']]
                 );
             }
         }
@@ -79,11 +79,11 @@ class InstructorAvailabilityController extends Controller
         // dump(input->get("Monday"));
         //dump($request->Monday['start'])
 
-        // foreach($request->all() as $key => $param)
-        // {
-        //     dump($key);
-        //     dump($request->input($key.'.start'));
-        // }
+        foreach($request->all() as $key => $param)
+        {
+            dump($key);
+            dump($request->input($key.'.end'));
+        }
 
         // if (($a = $request->Monday)[0] === null)
         //     dump(true);
@@ -91,7 +91,7 @@ class InstructorAvailabilityController extends Controller
         //     dump(false);    
         
         
-        return view('availability.show', compact('availability', 'user'));
+        //return view('availability.show', compact('availability', 'user'));
     }
 
     /**

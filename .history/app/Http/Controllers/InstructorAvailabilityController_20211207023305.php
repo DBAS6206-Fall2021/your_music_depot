@@ -82,7 +82,7 @@ class InstructorAvailabilityController extends Controller
         // foreach($request->all() as $key => $param)
         // {
         //     dump($key);
-        //     dump($request->input($key.'.start'));
+        //     dump($request->input($key.'.end'));
         // }
 
         // if (($a = $request->Monday)[0] === null)
@@ -91,7 +91,7 @@ class InstructorAvailabilityController extends Controller
         //     dump(false);    
         
         
-        return view('availability.show', compact('availability', 'user'));
+        //return view('availability.show', compact('availability', 'user'));
     }
 
     /**
