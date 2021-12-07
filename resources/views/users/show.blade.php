@@ -5,8 +5,15 @@
         @include('shared.banner')
         <div class="col-md-12">
             
-            
-                @include('users.dashboard')
+            <div class="bg-white m-0 p-0">
+                @if($user->type() == 'M')
+                    @include('management.dashboard')
+                @elseif($user->type() == 'I')
+                    @include('instructor.dashboard')
+                @elseif($user->type() == 'C')
+                    @include('client.dashboard')
+                @endif
+            </div>
             
         </div>
     </div>
