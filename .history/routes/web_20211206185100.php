@@ -35,7 +35,8 @@ Route::post('/users/edit/{user}', 'UserController@update');
 // Instructor Routes
 Route::get('/users/{user}/availability', 'InstructorAvailabilityController@show');
 Route::get('/users/{user}/availability/edit', 'InstructorAvailabilityController@edit');
-Route::post('/users/{user}/availability', 'InstructorAvailabilityController@update');
+Route::post('/users/{user}/availability', 'InstructorAvailabilityController@store');
+Route::post('/users/{user}/availability/edit', 'InstructorAvailabilityController@update');
 
 // Lesson Routes
 

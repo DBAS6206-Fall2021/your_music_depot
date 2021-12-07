@@ -17,23 +17,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function show(User $user)
     {
-        $availability = $user->instructorAvailability()->orderBy('start_availability', 'asc');
-
-        return view('availability.show', compact('availability', 'user'));
-    }
-
-    /**
-     * Show the form for storing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function store(User $user)
-    {
-
-        $availability = $user->instructorAvailability;
-
-        return view('availability.show', compact('availability', 'user'));
+        $availability = $user->instructorAvailability->orderBy('start_availability', 'asc');
     }
 
     /**
@@ -44,12 +28,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function edit(User $user)
     {
-
-        $availability = $user->instructorAvailability()->get();
-
-        //dd($availability);
-
-        return view('availability.edit', compact('availability', 'user'));
+        
     }
 
     /**
@@ -61,11 +40,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
-
         
-        
-        return view('availability.show', compact('availability', 'user'));
     }
 
     /**

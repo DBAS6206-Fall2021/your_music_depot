@@ -45,9 +45,7 @@ class InstructorAvailabilityController extends Controller
     public function edit(User $user)
     {
 
-        $availability = $user->instructorAvailability()->get();
-
-        //dd($availability);
+        $availability = $user->instructorAvailability;
 
         return view('availability.edit', compact('availability', 'user'));
     }
@@ -61,10 +59,7 @@ class InstructorAvailabilityController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
-
-        
-        
+        $availability = 0;
         return view('availability.show', compact('availability', 'user'));
     }
 

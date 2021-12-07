@@ -35,7 +35,7 @@ $days = [
                 </td>
                 <td>
                     <label for="{{$day}}-start"> Start Time: </label> 
-                    <input list="times" id="{{$day}}-start" name="{{$day}}-start">
+                    <input list="times" id="{{$day}}-start" name="{{$day}}-start" value="times[5]">
                 </td>
                 
                 <td>
