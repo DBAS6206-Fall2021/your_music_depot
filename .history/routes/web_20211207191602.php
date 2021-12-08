@@ -43,15 +43,10 @@ Route::get('/users/{user}/availability/edit', 'InstructorAvailabilityController@
 Route::post('/users/{user}/availability', 'InstructorAvailabilityController@update');
 
 // Lesson Routes
-Route::get('/student/{student}/lesson/create', 'LessonsController@create');
-Route::post('/student/{student}/lesson/detailsA', 'LessonsController@detailsA');
-Route::post('/student/{student}/lesson/detailsB', 'LessonsController@detailsB');
-Route::post('/student/{student}/lesson/detailsC', 'LessonsController@detailsC');
-Route::post('/student/{student}/lesson/', 'LessonsController@store');
+Route::get('/lessons/create', 'LessonsController@create');
 
 
 // Lesson Notes
-
 
 // Instrument Skills
 

@@ -35,7 +35,7 @@ class UserController extends Controller
 
         $students = $user->students();   
             
-        return view('users.show', compact('user', 'students'));
+        return view('users.show', compact('user'));
     }
 
     /**

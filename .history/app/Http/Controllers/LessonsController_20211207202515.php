@@ -40,17 +40,17 @@ class LessonsController extends Controller
             'lessonGroup' =>['required'],
         ]);
 
-        $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek;
+        $day = Carbon::parse($request->input('lessonDay'));
 
-        $instructors = User::where('weekday', $day);
+        //$instructors = User::where('weekday', $day);
 
         $instruments = Instrument::all();
 
-        dd($day);
+        dd($day->dayOfWeek);
 
 
         // Return Next View
-        return view('lessons.detailsB', 'instructors', 'instrument');
+        //return view('lessons.detailsB', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)

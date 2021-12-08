@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Instrument;
 use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Student;
-use Carbon\Carbon;
 
 class LessonsController extends Controller
 {
@@ -36,21 +34,12 @@ class LessonsController extends Controller
     {
         // Validate Date and Type
         $this->validate(request(), [
-            'lessonDay' => ['required', 'date_format:Y-m-d'],
-            'lessonGroup' =>['required'],
+            'date' => ['required', 'date_format:y-m-d', 'max:100'],
         ]);
-
-        $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek;
-
-        $instructors = User::where('weekday', $day);
-
-        $instruments = Instrument::all();
-
-        dd($day);
 
 
         // Return Next View
-        return view('lessons.detailsB', 'instructors', 'instrument');
+        return view('lessons.detailsB');
     }
 
     public function detailsB(Request $request, Student $student)

@@ -7,8 +7,7 @@
         <div class="login" id="contentArea">
             <h1 class="display-4">Book a Lesson</h1>
             <form id="bookLessonForm" method="POST"action="/student/{{$student->id}}/lesson/detailsA"  novalidate>
-            @csrf    
-            <div id="messageArea"></div>
+                <div id="messageArea"></div>
                 <p class="hint-text">Select the Date for your Student's Lesson</p>
             <div class="form-group mb-2 border-bottom">
                 <div>
@@ -33,8 +32,7 @@
             </div> 
             
             <div class="form-check">
-                <input type="hidden" name="lessonGroup" value="0">
-                <input class="form-check-input" type="checkbox" name="lessonGroup" value="true" id="lessonGroup">
+                <input class="form-check-input" type="checkbox" name="lessonGroup" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     Is this a group lesson?:
                 </label>
