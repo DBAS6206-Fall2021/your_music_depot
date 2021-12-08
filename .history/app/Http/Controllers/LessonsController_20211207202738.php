@@ -50,7 +50,7 @@ class LessonsController extends Controller
 
 
         // Return Next View
-        return view('lessons.detailsA', 'instructors', 'instrument');
+        return view('lessons.detailsB', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)
