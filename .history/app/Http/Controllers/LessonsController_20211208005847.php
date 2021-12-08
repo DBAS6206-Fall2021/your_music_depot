@@ -14,6 +14,11 @@ use Carbon\Carbon;
 class LessonsController extends Controller
 {
     private $data;
+
+    public function __construct($d=[])
+    {
+        $this->data = $d;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,14 +50,12 @@ class LessonsController extends Controller
         $date = Carbon::parse($request->input('lessonDay'));
         $day = $date->englishDayOfWeek;
 
-        $data = collect([
-            'date' => $date,
-            'type' => $request->input('lessonGroup')
+        $this->data = collect([
+            ['date' => $date],
+            ['type' => $request->input('lessonGroup')]
         ]);
-        session(['data' =>$data]);
 
-        //dd(session('data'));
-        //dd($this->data);
+        //dd($data);
 
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
 
@@ -86,13 +89,9 @@ class LessonsController extends Controller
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
         
-        $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
+        dd($request->input('data'));
         //dd($availability);
-
-        // $this->data->concat(['instrument' => $request->input('instrument')]);
-
+        $request->input('data')->push(['instrument' => $request->input('instrument')]);
         //dd($this->data);
         // Return Next View
         //return view('lessons.detailsB', compact('availability'));

@@ -45,10 +45,10 @@ class LessonsController extends Controller
         $date = Carbon::parse($request->input('lessonDay'));
         $day = $date->englishDayOfWeek;
 
-        $data = collect([
+        $data = [
             'date' => $date,
             'type' => $request->input('lessonGroup')
-        ]);
+        ];
         session(['data' =>$data]);
 
         //dd(session('data'));
@@ -85,12 +85,9 @@ class LessonsController extends Controller
         
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
-        
         $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
-        //dd($availability);
-
+        $data->put(['instrument' => $request->input('instrument')]);
+        dd($data);
         // $this->data->concat(['instrument' => $request->input('instrument')]);
 
         //dd($this->data);

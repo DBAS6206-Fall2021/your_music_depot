@@ -20,7 +20,6 @@
             </div>
             <form id="bookLessonForm" method="POST" action="/student/{{$student->id}}/lesson/detailsB">
             @csrf
-            
             <p class="hint-text">Select the Instrument and Instructor</p>
               
                 <div class="form-group mb-2">

@@ -85,12 +85,13 @@ class LessonsController extends Controller
         
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
-        
+        $d = [
+            'instrument' => $date,
+            'type' => $request->input('lessonGroup')
+        ];
         $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
-        //dd($availability);
-
+        //$data->put(['instrument' => $request->input('instrument')]);
+        dd($data);
         // $this->data->concat(['instrument' => $request->input('instrument')]);
 
         //dd($this->data);

@@ -45,13 +45,11 @@ class LessonsController extends Controller
         $date = Carbon::parse($request->input('lessonDay'));
         $day = $date->englishDayOfWeek;
 
-        $data = collect([
+        $data = [
             'date' => $date,
             'type' => $request->input('lessonGroup')
-        ]);
-        session(['data' =>$data]);
+        ];
 
-        //dd(session('data'));
         //dd($this->data);
 
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
@@ -70,7 +68,7 @@ class LessonsController extends Controller
         $instruments = Instrument::all();
 
         // Return Next View
-        return view('lessons.detailsA', compact('student', 'instructors', 'instruments'));
+        return view('lessons.detailsA', compact('student', 'instructors', 'instruments', 'data'));
     }
 
     public function detailsB(Request $request, Student $student)
@@ -86,13 +84,9 @@ class LessonsController extends Controller
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
         
-        $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
+        dd($request->input('data'));
         //dd($availability);
-
-        // $this->data->concat(['instrument' => $request->input('instrument')]);
-
+        $this->data->push(['instrument' => $request->input('instrument')]);
         //dd($this->data);
         // Return Next View
         //return view('lessons.detailsB', compact('availability'));

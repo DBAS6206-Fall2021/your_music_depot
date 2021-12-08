@@ -45,13 +45,11 @@ class LessonsController extends Controller
         $date = Carbon::parse($request->input('lessonDay'));
         $day = $date->englishDayOfWeek;
 
-        $data = collect([
+        $this->data = [
             'date' => $date,
             'type' => $request->input('lessonGroup')
-        ]);
-        session(['data' =>$data]);
+        ];
 
-        //dd(session('data'));
         //dd($this->data);
 
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
@@ -77,19 +75,15 @@ class LessonsController extends Controller
     {
         // Validate Instrument & Instructor
         // Validate Date and Type
-        $this->validate(request(), [
-            'lessonInstrument' => 'required',
-            'lessonInstructor' => 'required',
-        ]);
+        // $this->validate(request(), [
+        //     'lessonInstructor' => ['required'],
+        //     'lessonInstrument' => ['required'],
+        // ]);
 
-        
-        $availability = User::find($request->input('lessonInstructor'))
-        ->instructorAvailability()->get();
-        
-        $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
-        //dd($availability);
+        dd($this->validate);
+
+        // $availability = User::find($request->input('instructor'))
+        //                                    ->instructorAvailability()->get();
 
         // $this->data->concat(['instrument' => $request->input('instrument')]);
 
