@@ -12,7 +12,7 @@ use Carbon\Carbon;
 
 class LessonsController extends Controller
 {
-    private $data;
+    private $data = [];
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +59,7 @@ class LessonsController extends Controller
 
 
         // Return Next View
-        return view('lessons.detailsA', compact('instructors', 'instruments'));
+        return view('lessons.detailsA', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)

@@ -59,7 +59,7 @@ class LessonsController extends Controller
 
 
         // Return Next View
-        return view('lessons.detailsA', compact('instructors', 'instruments'));
+        return view('lessons.detailsA', compact('instructors', 'instrument'));
     }
 
     public function detailsB(Request $request, Student $student)

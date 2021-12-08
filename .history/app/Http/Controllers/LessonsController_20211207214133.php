@@ -44,10 +44,10 @@ class LessonsController extends Controller
         $date = Carbon::parse($request->input('lessonDay'));
         $day = $date->englishDayOfWeek;
 
-        $this->data = [
-            'date' => $date,
-            'type' => $request->input('lessonGroup')
-        ];
+        // $this->data = [
+        //     'date' => $date,
+        //     'type' => $request->input('lessonGroup')
+        // ];
 
         //dd($this->data);
 
@@ -59,7 +59,7 @@ class LessonsController extends Controller
 
 
         // Return Next View
-        return view('lessons.detailsA', compact('instructors', 'instruments'));
+        return view('lessons.detailsA', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)
