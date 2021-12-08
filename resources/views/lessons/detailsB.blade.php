@@ -1,4 +1,15 @@
 @extends('layouts.app')
+@php
+$days = [
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday'
+        ];
+@endphp
 
 @section('content')
 <div class="justify-content-center">
@@ -20,7 +31,25 @@
             </div>
             <form id="bookLessonForm" method="POST" action="/student/{{$student->id}}/lesson/detailsC" novalidate>
                 @csrf
-            <p class="hint-text">Select </p>
+                <table class="table align-center">
+                    <tbody>
+                        @csrf
+                        <tr class="text-center">
+                            <td>
+                                {{ Session::get('data') }}        
+                            </td>
+                            <td>
+                                <label for="lessonStart"> Start Time: </label> 
+                                <select id="lessonStart" name="lessonStart">
+                                    <option value="">N/A</option>
+                                    @foreach ($availability as $ava)
+                                        <option value="{{$ava->start_availability}}" >{{$ava->start_availability}}</option>
+                                    @endforeach    
+                                </select>    
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
               
 
                                                   
