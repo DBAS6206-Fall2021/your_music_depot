@@ -7,9 +7,8 @@
         <div class="login" id="contentArea">
             <h1 class="display-4">Book a Lesson</h1>
             <form id="bookLessonForm" method="POST"action="/student/{{$student->id}}/lesson/detailsA"  novalidate>
-            @csrf    
-            <div id="messageArea"></div>
-                <p class="hint-text">Select the Date for your Student's Lesson</p>
+            @csrf
+            <p class="hint-text">Select the Date for your Student's Lesson</p>
             <div class="form-group mb-2 border-bottom">
                 <div>
                     <div class="col-md-6">
@@ -17,7 +16,7 @@
                     </div>
                     <div>
                         <div class="col-md-6">
-                            <h5>__________</h5>
+                            <h5>{{$student->first_name . ' ' . $student->last_name}}</h5>
                         </div>
                     </div>
                 </div>

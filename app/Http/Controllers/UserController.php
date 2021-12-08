@@ -33,7 +33,7 @@ class UserController extends Controller
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
 
-        $students = $user->students();   
+        $students = $user->students()->get();   
             
         return view('users.show', compact('user', 'students'));
     }
