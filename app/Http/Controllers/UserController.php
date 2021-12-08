@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -34,8 +35,24 @@ class UserController extends Controller
             return redirect('/home');
 
         $students = $user->students()->get();   
+
+        $lessons = collect([]);
+        foreach($students as $s){
+            foreach($s->lessons as $l) {
+                if($l != null){
+                    if($l->date > Carbon::Today()->shiftTimezone('America/Toronto')){
+                        $lessons->push($l);
+                    }
+                    elseif (Carbon::parse($l->date) == Carbon::Today()) {
+                        if(Carbon::parse($l->start_time)->shiftTimezone('America/Toronto') > Carbon::Now()->setTimezone('America/Toronto')) {
+                            $lessons->push($l);
+                        }
+                    }
+                }     
+            }
+        }
             
-        return view('users.show', compact('user', 'students'));
+        return view('users.show', compact('user', 'students', 'lessons'));
     }
 
     /**
