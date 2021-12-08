@@ -30,7 +30,12 @@ Route::post('/users/edit/{user}', 'UserController@update');
 
 
 // Student Routes
-
+Route::get('/student/create', function () {
+    return view('students.create');
+});
+Route::get('/student/edit', function () {
+    return view('students.edit');
+});
 
 // Instructor Routes
 Route::get('/users/{user}/availability', 'InstructorAvailabilityController@show');
