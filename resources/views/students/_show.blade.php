@@ -22,7 +22,7 @@
                         </td>
                         <td class="d-flex justify-content-between">
                             <div>
-                                <a href="#" class="btn btn-primary btn-block">Edit</a>
+                                <a href="/student/edit/{{$student->id}}" class="btn btn-primary btn-block">Edit</a>
                             </div>
                             <div>
                                 <a href="#" class="btn btn-primary btn-block">Lessons</a>
@@ -31,7 +31,7 @@
                                 <a href="/student/{{$student->id}}/lesson/create" class="btn btn-primary btn-block">Book</a>
                             </div>
                             <div>
-                                <a href="#" class="btn btn-primary btn-block">Remove</a>
+                                <a href="/student/remove/{{$student->id}}" class="btn btn-primary btn-block">Remove</a>
                             </div>
                         </td>
                     </tr>
@@ -39,7 +39,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-primary btn-block col-sm-5">
+                <a href="/student/create" class="btn btn-primary btn-block col-sm-5">
                     Add New Student
                 </a>
             </div>

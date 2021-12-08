@@ -1,4 +1,6 @@
-- seed tables (not factory, the actual records for user_types, skill_levels, room_types etc...)
-
-- update UserFactory.php, User.php, RegisterController.php, and register.blade.php to match our case
-  - temporarilly made some fields nullable to be able to create a user.
+- /home is broken
+- get lessons to display
+- view each students lessons
+- cascade delete students
+- book a student
+- view all student lessons

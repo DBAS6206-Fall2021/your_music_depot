@@ -18,7 +18,7 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="/users/{{ Auth::user()->id }}">Profile</a>
+                                <a class="nav-link" href="/users/{{ Auth::user()->id }}">Dashboard</a>
                             </li>
                         @endauth
                 </ul>           

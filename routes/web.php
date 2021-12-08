@@ -30,12 +30,11 @@ Route::post('/users/edit/{user}', 'UserController@update');
 
 
 // Student Routes
-Route::get('/student/create', function () {
-    return view('students.create');
-});
-Route::get('/student/edit', function () {
-    return view('students.edit');
-});
+Route::get('/student/create', 'StudentsController@create');
+Route::post('/student/create', 'StudentsController@store');
+Route::get('/student/edit/{student}', 'StudentsController@edit');
+Route::post('/student/edit/{student}', 'StudentsController@update');
+Route::get('/student/remove/{student}', 'StudentsController@destroy');
 
 // Instructor Routes
 Route::get('/users/{user}/availability', 'InstructorAvailabilityController@show');

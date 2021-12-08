@@ -3,7 +3,8 @@
 @section('content')
 <div class="d-block-flex justify-content-center bg-white m-0 p-0">
     <h1 class="display-4">Add a Student to Your Account</h1>
-    <form id="addStudentForm" novalidate>
+    <form id="addStudentForm" method="POST" action="/student/create">
+        @csrf
         <div class="form-group mb-2">
             <div>
                 <p class="hint-text">Add a Student to Book and Track their Lessons</p>
