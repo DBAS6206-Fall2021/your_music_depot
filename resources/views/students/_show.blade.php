@@ -22,7 +22,7 @@
                         </td>
                         <td class="d-flex justify-content-between">
                             <div>
-                                <a href="#" class="btn btn-primary btn-block">Edit</a>
+                                <a href="/student/edit/{{$student->id}}" class="btn btn-primary btn-block">Edit</a>
                             </div>
                             <div>
                                 <a href="#" class="btn btn-primary btn-block">Lessons</a>

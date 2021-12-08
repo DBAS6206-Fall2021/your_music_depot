@@ -57,7 +57,7 @@ class StudentsController extends Controller
      */
     public function show(Student $student)
     {
-        return view('students.edit');
+        //
     }
 
     /**
@@ -68,7 +68,7 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.edit');
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -80,7 +80,18 @@ class StudentsController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $this->validate(request(), [
+            'firstName' => 'required|min:1|max:100',
+            'lastName' => 'required|min:2|max:100'
+        ]);
+
+        Student::where('id', $student->id)
+        ->update([
+            'first_name' => request('firstName'),
+            'last_name' => request('lastName'),
+        ]);
+
+        return redirect("/users/" . auth()->id());
     }
 
     /**
