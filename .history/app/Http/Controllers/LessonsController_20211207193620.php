@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Instrument;
 use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Student;
-use Carbon\Carbon;
 
 class LessonsController extends Controller
 {
@@ -29,48 +27,39 @@ class LessonsController extends Controller
      */
     public function create(Student $student)
     {
-        return view('lessons.create', compact('student'));
-    }
-
-    public function detailsA(Request $request, Student $student)
-    {
         // Validate Date and Type
-        $this->validate(request(), [
-            'lessonDay' => ['required', 'date_format:Y-m-d'],
-            'lessonGroup' =>['required'],
-        ]);
-
-        $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek;
-
-        $instructors = User::where('weekday', $day);
-
-        $instruments = Instrument::all();
-
-        dd($day);
 
 
         // Return Next View
-        return view('lessons.detailsB', 'instructors', 'instrument');
+        return view('lessons.detailsA');
     }
 
-    public function detailsB(Request $request, Student $student)
+    public function detailsA(Student $student)
     {
-        // Validate Instrument & Instructor
+        // Validate Date and Type
 
 
         // Return Next View
         return view('lessons.detailsB');
     }
 
-    public function detailsC(Request $request, Student $student)
+    public function detailsB(Student $student)
     {
-        // Validate Start/End Times
+        // Validate Date and Type
 
 
         // Return Next View
         return view('lessons.detailsC');
     }
 
+    public function detailsC(Student $student)
+    {
+        // Validate Date and Type
+
+
+        // Return Next View
+        return view('lessons.detailsC');
+    }
 
     /**
      * Store a newly created resource in storage.

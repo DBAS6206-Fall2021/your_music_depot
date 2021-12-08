@@ -42,7 +42,7 @@ class LessonsController extends Controller
 
         $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek;
 
-        $instructors = User::where('weekday', $day);
+        //$instructors = User::where('weekday', $day);
 
         $instruments = Instrument::all();
 
@@ -50,7 +50,7 @@ class LessonsController extends Controller
 
 
         // Return Next View
-        return view('lessons.detailsB', 'instructors', 'instrument');
+        //return view('lessons.detailsB', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)

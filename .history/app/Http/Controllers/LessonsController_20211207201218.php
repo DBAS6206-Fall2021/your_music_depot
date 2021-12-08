@@ -36,21 +36,21 @@ class LessonsController extends Controller
     {
         // Validate Date and Type
         $this->validate(request(), [
-            'lessonDay' => ['required', 'date_format:Y-m-d'],
+            'lessonDay' => ['required', 'date_format:y-m-d'],
             'lessonGroup' =>['required'],
         ]);
 
-        $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek;
+        $day = Carbon::parse($request->input('lessonDay'))->englishDayOfWeek();
 
         $instructors = User::where('weekday', $day);
 
         $instruments = Instrument::all();
 
-        dd($day);
+        dd('')
 
 
         // Return Next View
-        return view('lessons.detailsB', 'instructors', 'instrument');
+        //return view('lessons.detailsB', 'instructors', 'instrument');
     }
 
     public function detailsB(Request $request, Student $student)

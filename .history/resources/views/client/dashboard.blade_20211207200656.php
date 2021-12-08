@@ -34,7 +34,7 @@
                                         <a href="" class="btn btn-primary btn-block">Book</a>
                                     </div>
                                     <div>
-                                        <a href="/student/{{$students->first()->id}}/lesson/create" class="btn btn-primary btn-block">Remove</a>
+                                        <a href="/students/{{$students->first()->id}}/lessons/create" class="btn btn-primary btn-block">Remove</a>
                                     </div>
                                 </td>
                             </tr>

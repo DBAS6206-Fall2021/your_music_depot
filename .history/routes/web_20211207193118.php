@@ -47,7 +47,7 @@ Route::get('/student/{student}/lesson/create', 'LessonsController@create');
 Route::post('/student/{student}/lesson/detailsA', 'LessonsController@detailsA');
 Route::post('/student/{student}/lesson/detailsB', 'LessonsController@detailsB');
 Route::post('/student/{student}/lesson/detailsC', 'LessonsController@detailsC');
-Route::post('/student/{student}/lesson/', 'LessonsController@store');
+Route::get('/student/{student}/lesson/', 'LessonsController@store');
 
 
 // Lesson Notes
