@@ -3,8 +3,7 @@
 @section('content')
 <div class="justify-content-center">
 
-<div >
-    <div class="offset-md-3 col-md-6 col-sm-12">
+<div class="d-block-flex justify-content-center bg-white m-0 p-0">
         <div class="login" id="contentArea">
             <h1 class="display-4">Book a Lesson</h1>
             <form id="bookLessonForm" novalidate>
@@ -44,6 +43,5 @@
             </div>
             </form>
         </div>
-    </div>
 </div>
 @endsection
