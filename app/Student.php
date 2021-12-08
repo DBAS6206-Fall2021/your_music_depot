@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     // Properties
-    
+ 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'first_name', 'last_name'
+    ];
+
     /**
      * Manual Association with students Table in the Database
      */

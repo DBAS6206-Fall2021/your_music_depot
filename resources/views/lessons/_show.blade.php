@@ -14,6 +14,7 @@
                         <th>Student</th>
                         <th>Lesson Type</th>
                         <th>Instructor</th>
+                        <th>Room Number</th>
                         <th>Date</th>
                         <th>Starts</th>
                         <th>Ends</th>
@@ -23,6 +24,7 @@
                         <td>John Smith</td>
                         <td>Piano</td>
                         <td>James Hancock</td>
+                        <td>101</td>
                         <td>2021-01-01</td>
                         <td>4:00 PM</td>
                         <td>5:00 PM</td>

@@ -1,3 +1,4 @@
+
 <div>
     <div class="p-5 mb-4 bg-white rounded-3">
         <h1>{{ $user->first_name . ' ' . $user->last_name }}</h1>
@@ -16,7 +17,10 @@
                 </div>
                 <div class="col-12">
                     <h2 for="inputAddress" class="form-label">Phone Number</h2>
-                    <h5>(905) 123-4567</h5>
+                    <h5>{{ sprintf("(%s) %s-%s",
+                            substr($user->phone_number, 0, 3),
+                            substr($user->phone_number, 3, 3),
+                            substr($user->phone_number, 6)) }}</h5>
                 </div>
                 <div class="col-12">
                     <h2 for="inputAddress" class="form-label">Address</h2>

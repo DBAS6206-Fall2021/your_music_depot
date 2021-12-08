@@ -24,7 +24,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -35,7 +35,18 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'firstName' => 'required|min:1|max:100',
+            'lastName' => 'required|min:2|max:100'
+        ]);
+
+        Student::create([
+            'user_id' => auth()->id(),
+            'first_name' => request('firstName'),
+            'last_name' => request('lastName'),
+        ]);
+
+        return redirect("/users/" . auth()->id());
     }
 
     /**
@@ -46,7 +57,7 @@ class StudentsController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('students.edit');
     }
 
     /**
@@ -57,7 +68,7 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit');
     }
 
     /**
@@ -80,6 +91,14 @@ class StudentsController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        // check this student belongs to this user
+        if (auth()->id() == $student->user->id)
+        {
+            $student->delete();
+
+            return redirect("/users/" . auth()->id());
+        } else {
+            return redirect('/');
+        }
     }
 }
