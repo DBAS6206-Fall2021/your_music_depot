@@ -18,8 +18,8 @@
                     </div>
                 </div>
             </div>
-            <form id="bookLessonForm" novalidate>
-                <p class="hint-text">Select the Date for your Student's Lesson</p>
+            <form id="bookLessonForm" method="POST"action="/student/{{$student->id}}/lesson/detailsB">
+                <p class="hint-text">Select the Instrument and Instructor</p>
               
                 <div class="form-group mb-2">
                         <label for="lessonType">Choose Type of Lesson:</label>
@@ -27,9 +27,9 @@
                           <div class="col-md-12">
                             <select name="lessonType" id="lessonType" required>
                                 <option value="0">-</option>
-                                <option value="1">Piano</option>
-                                <option value="2">Guitar</option>
-                                <option value="3">Trumpet</option>
+                                @foreach($instruments as $instrument)
+                                  <option value="{{$instrument->id}}">{{$instrument->name}}</option>
+                                @endforeach
                             </select>
                           </div>
                         </div>
@@ -41,9 +41,9 @@
                           <div class="col-md-12">
                             <select name="lessonInstructor" id="lessonInstructor" required>
                                 <option value="0">-</option>
-                                <option value="1">James Hancock</option>
-                                <option value="2">Johan Bach</option>
-                                <option value="3">Amadeus Mozart</option>
+                                @foreach($instructors as $instructor)
+                                  <option value="{{$instructor->id}}">{{$instructor->first_name . ' ' . $instructor->last_name}}</option>
+                                @endforeach
                             </select>
                           </div>
                         </div>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Student;
+use App\InstructorAvailability;
 use Carbon\Carbon;
 
 class LessonsController extends Controller
@@ -51,15 +52,23 @@ class LessonsController extends Controller
 
         //dd($this->data);
 
-        $instructors = User::where('weekday', $day);
+        $availabilities = InstructorAvailability::where('weekday', $day)->get();
 
+        $instructors = collect([]);
+        // $availabilities->each(function ($item, $key) {
+        //     dd(($item->user()->get()));
+        // });
+
+        foreach($availabilities as $value){
+            $instructors->push($value->user);
+        };
+        
+        // dd($instructors);
+        
         $instruments = Instrument::all();
 
-        //dd($day);
-
-
         // Return Next View
-        return view('lessons.detailsA', compact('instructors', 'instruments'));
+        return view('lessons.detailsA', compact('student', 'instructors', 'instruments'));
     }
 
     public function detailsB(Request $request, Student $student)
