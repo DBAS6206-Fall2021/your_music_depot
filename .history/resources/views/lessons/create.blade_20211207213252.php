@@ -33,8 +33,8 @@
             </div> 
             
             <div class="form-check">
-                <input type="hidden" name="lessonGroup" value="0">
-                <input class="form-check-input" type="checkbox" name="lessonGroup" value="1" id="lessonGroup">
+                <input type="hidden" name="lessonGroup" value="1">
+                <input class="form-check-input" type="checkbox" name="lessonGroup" value="2" id="lessonGroup">
                 <label class="form-check-label" for="flexCheckDefault">
                     Is this a group lesson?:
                 </label>
