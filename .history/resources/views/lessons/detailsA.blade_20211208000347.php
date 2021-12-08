@@ -24,10 +24,10 @@
             <p class="hint-text">Select the Instrument and Instructor</p>
               
                 <div class="form-group mb-2">
-                        <label for="lessonType">Choose Type of Instrument:</label>
+                        <label for="lessonType">Choose Type of Lesson:</label>
                         <div class="row">
                           <div class="col-md-12">
-                            <select name="lessonInstrument" id="lessonInstrument" required>
+                            <select name="lessonType" id="lessonType" required>
                                 <option value="0">-</option>
                                 @foreach($instruments as $instrument)
                                   <option value="{{$instrument->id}}">{{$instrument->name}}</option>

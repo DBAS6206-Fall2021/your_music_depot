@@ -87,10 +87,8 @@ class LessonsController extends Controller
         ->instructorAvailability()->get();
         
         $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
-        //dd($availability);
-
+        //$data->put(['instrument' => $request->input('instrument')]);
+        dd($data);
         // $this->data->concat(['instrument' => $request->input('instrument')]);
 
         //dd($this->data);

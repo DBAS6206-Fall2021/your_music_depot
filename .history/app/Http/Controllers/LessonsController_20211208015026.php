@@ -95,7 +95,7 @@ class LessonsController extends Controller
 
         //dd($this->data);
         // Return Next View
-        //return view('lessons.detailsB', compact('availability'));
+        return view('lessons.detailsB', compact('availability'));
     }
 
     public function detailsC(Request $request, Student $student)

@@ -46,13 +46,11 @@ class LessonsController extends Controller
         $day = $date->englishDayOfWeek;
 
         $data = collect([
-            'date' => $date,
-            'type' => $request->input('lessonGroup')
+            ['date' => $date],
+            ['type' => $request->input('lessonGroup')]
         ]);
-        session(['data' =>$data]);
 
-        //dd(session('data'));
-        //dd($this->data);
+        //dd($data->toJson());
 
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
 
@@ -70,7 +68,7 @@ class LessonsController extends Controller
         $instruments = Instrument::all();
 
         // Return Next View
-        return view('lessons.detailsA', compact('student', 'instructors', 'instruments'));
+        return view('lessons.detailsA', compact('student', 'instructors', 'instruments', 'data'));
     }
 
     public function detailsB(Request $request, Student $student)
@@ -82,17 +80,14 @@ class LessonsController extends Controller
             'lessonInstructor' => 'required',
         ]);
 
+
         
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
         
-        $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
+        dd($request->input('data')->toArray());
         //dd($availability);
-
-        // $this->data->concat(['instrument' => $request->input('instrument')]);
-
+        //$request->input('data')->push(['instrument' => $request->input('instrument')]);
         //dd($this->data);
         // Return Next View
         //return view('lessons.detailsB', compact('availability'));

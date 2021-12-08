@@ -49,9 +49,7 @@ class LessonsController extends Controller
             'date' => $date,
             'type' => $request->input('lessonGroup')
         ]);
-        session(['data' =>$data]);
 
-        //dd(session('data'));
         //dd($this->data);
 
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
@@ -86,13 +84,9 @@ class LessonsController extends Controller
         $availability = User::find($request->input('lessonInstructor'))
         ->instructorAvailability()->get();
         
-        $data = session('data');
-        $data->put('instrument', $request->input('lessonInstrument'));
-        session(['data' => $data]);
         //dd($availability);
-
-        // $this->data->concat(['instrument' => $request->input('instrument')]);
-
+        $this->data->push(['instrument' => $request->input('instrument')]);
+        dd($this->data);
         //dd($this->data);
         // Return Next View
         //return view('lessons.detailsB', compact('availability'));
