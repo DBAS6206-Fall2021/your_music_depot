@@ -107,12 +107,11 @@ class LessonsController extends Controller
             $start->addHour();
         }while($start < $end);
 
-        //dd($availability);
+        dd($availability);
 
         $data->put('instrument', $request->input('lessonInstrument'));
         $data->put('instructor', $request->input('lessonInstructor'));
         session(['data' => $data]);
-
         //dd($request->input('lessonInstructor'));
 
         // $this->data->concat(['instrument' => $request->input('instrument')]);

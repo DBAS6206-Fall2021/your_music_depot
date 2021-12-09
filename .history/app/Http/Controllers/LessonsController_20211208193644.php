@@ -96,23 +96,22 @@ class LessonsController extends Controller
         $start = Carbon::parse($dayAvailability->first()->start_availability);
         $end = Carbon::parse($dayAvailability->first()->end_availability);
         $availability = collect([]);
-        $lessons = Lesson::where('date', $date->toDateString())->get();
+        $lessons = Lesson::where('date', $date->toDateString)->get();
 
-        //dd(session('data'));
-        //dd($lessons);
+        dd(session('data'));
+        dd($lessons);
 
         do{
-            if(!$lessons->contains('start_time',$start->toTimeString()))
+            if(!$dayAvailability->contains($start->toTimeString()))
                 $availability->push($start->toTimeString());
             $start->addHour();
         }while($start < $end);
 
-        //dd($availability);
+        dd($availability);
 
         $data->put('instrument', $request->input('lessonInstrument'));
         $data->put('instructor', $request->input('lessonInstructor'));
         session(['data' => $data]);
-
         //dd($request->input('lessonInstructor'));
 
         // $this->data->concat(['instrument' => $request->input('instrument')]);

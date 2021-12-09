@@ -46,7 +46,7 @@ $days = [
                                     <option value="">N/A</option>
                                     @foreach ($availability as $ava)
 
-                                        <option value="{{$ava}}" >{{$ava}}</option>
+                                        <option value="{{$ava->start_availability}}" >{{$ava}}</option>
 
                                         @endforeach    
                                 </select>    

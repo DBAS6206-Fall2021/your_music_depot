@@ -10,7 +10,7 @@ $days = [
             'Saturday'
         ];
 
-      
+$start = Carbon::parse($availability->get('start_availability'))        
 @endphp
 
 @section('content')
@@ -45,9 +45,9 @@ $days = [
                                 <select id="lessonStart" name="lessonStart">
                                     <option value="">N/A</option>
                                     @foreach ($availability as $ava)
-
-                                        <option value="{{$ava}}" >{{$ava}}</option>
-
+                                        @for()
+                                        <option value="{{$ava->start_availability}}" >{{$ava->start_availability}}</option>
+                                        @endfor
                                         @endforeach    
                                 </select>    
                             </td>
