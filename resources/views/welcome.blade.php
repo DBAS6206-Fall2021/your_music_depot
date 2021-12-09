@@ -14,7 +14,7 @@
             <p class="text-center">
                 <strong>Your Music Depot</strong> is your one-stop-shop for all of your childrens' musical needs.<br/>
                 <br/>
-                From guitar to Saxophone, beginner to expert, our variety of instructors can help develop any musical talent.<br/>
+                From Guitar to Saxophone, beginner to expert, our variety of instructors can help develop any musical talent.<br/>
                 <br/>
                 Need supplies? Swing by <strong>Your Music Depot's</strong> in-house music shop. Chances are we'll have what you need on hand.
             </p>
