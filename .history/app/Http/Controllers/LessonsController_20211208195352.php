@@ -54,14 +54,21 @@ class LessonsController extends Controller
         ]);
         session(['data' =>$data]);
 
+        //dd(session('data'));
+        //dd($this->data);
+
         $availabilities = InstructorAvailability::where('weekday', $day)->get();
 
         $instructors = collect([]);
+        // $availabilities->each(function ($item, $key) {
+        //     dd(($item->user()->get()));
+        // });
 
         foreach($availabilities as $value){
             $instructors->push($value->user);
         };
-
+        
+        // dd($instructors);
         
         $instruments = Instrument::all();
 
@@ -91,6 +98,9 @@ class LessonsController extends Controller
         $availability = collect([]);
         $lessons = Lesson::where('date', $date->toDateString())->get();
 
+        //dd(session('data'));
+        //dd($lessons);
+
         do{
             if(!$lessons->contains('start_time',$start->toTimeString()))
                 $availability->push($start->toTimeString());
@@ -103,18 +113,23 @@ class LessonsController extends Controller
         $data->put('instructor', $request->input('lessonInstructor'));
         session(['data' => $data]);
 
+        //dd($request->input('lessonInstructor'));
+
+        // $this->data->concat(['instrument' => $request->input('instrument')]);
+
+        //dd($this->data);
         // Return Next View
         return view('lessons.detailsB', compact('availability', 'student'));
     }
 
     public function detailsC(Request $request, Student $student)
     {
-        //Validate Start/End Times
+        Validate Start/End Times
         $this->validate(request(), [
             'lessonStart' => ['required', 'date_format:H:i:s'],
         ]);
 
-        $lessonStart = $request->input('lessonStart');
+        $lessonStart = "15:00:00";
 
         // Gather the data
         $data = session('data');
@@ -176,6 +191,8 @@ class LessonsController extends Controller
                 
             });
 
+        //dd($room);
+
         if ($room != null) 
         {
         // Make the lesson
@@ -188,6 +205,8 @@ class LessonsController extends Controller
                 'end_time' => Carbon::parse($data->get('lessonStart'))->addHour()->toTimeString(),
             ]);
 
+            //dump($lesson);
+
         // Make the attendees
             $attendee = Attendee::create([
                 'lesson_id' => $lesson->id,
@@ -195,15 +214,16 @@ class LessonsController extends Controller
                 'is_withdrawn' => 0,
             ]);
 
+            //dump($attendee);
+
         // Make Lesson Instructor
             $instructor = LessonInstructor::create([
                 'user_id' => $data->get('instructor'),
                 'lesson_id' => $lesson->id,
             ]);
 
+            //dump($instructor);
         }
-
-        $request->session()->forget('data');
 
         return redirect("/users/" . auth()->id());
     }
