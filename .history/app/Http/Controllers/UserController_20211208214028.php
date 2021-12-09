@@ -35,28 +35,38 @@ class UserController extends Controller
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
         
-            
-        $students = $user->students()->get();   
+        // If Client    
+        if (Auth::user()->type() == "C")
+        {
+            $students = $user->students()->get();   
 
-        $lessons = collect([]);
-        foreach($students as $s){
-            foreach($s->lessons as $l) {
-                if($l != null){
-                    if($l->date > Carbon::Today()->shiftTimezone('America/Toronto')){
-                        $lessons->push($l);
-                    }
-                    elseif (Carbon::parse($l->date) == Carbon::Today()) {
-                        if(Carbon::parse($l->start_time)->shiftTimezone('America/Toronto') > Carbon::Now()->setTimezone('America/Toronto')) {
+            $lessons = collect([]);
+            foreach($students as $s){
+                foreach($s->lessons as $l) {
+                    if($l != null){
+                        if($l->date > Carbon::Today()->shiftTimezone('America/Toronto')){
                             $lessons->push($l);
                         }
-                    }
-                }     
+                        elseif (Carbon::parse($l->date) == Carbon::Today()) {
+                            if(Carbon::parse($l->start_time)->shiftTimezone('America/Toronto') > Carbon::Now()->setTimezone('America/Toronto')) {
+                                $lessons->push($l);
+                            }
+                        }
+                    }     
+                }
             }
+
+            $lessons = $lessons->sortBy('date')->values()->all();
+                
+            return view('users.show', compact('user', 'students', 'lessons'));
+        }
+        else
+        {
+
+            return view('users.show', compact('user', 'lessons'));
         }
 
-        $lessons = $lessons->sortBy('date')->values()->all();
-            
-        return view('users.show', compact('user', 'students', 'lessons'));
+        // If Instructor
     }
 
     /**

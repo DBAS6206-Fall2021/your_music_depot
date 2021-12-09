@@ -31,11 +31,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
-        
-            
+
         $students = $user->students()->get();   
 
         $lessons = collect([]);
@@ -53,8 +51,6 @@ class UserController extends Controller
                 }     
             }
         }
-
-        $lessons = $lessons->sortBy('date')->values()->all();
             
         return view('users.show', compact('user', 'students', 'lessons'));
     }

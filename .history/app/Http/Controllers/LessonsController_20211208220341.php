@@ -53,10 +53,7 @@ class LessonsController extends Controller
         if (Auth::user()->cant('view', $user))
             return redirect('/home');
 
-            if(Auth::user()->type() === "C")
-                $students = $user->students()->get(); 
-            elseif(Auth::user()->type() === "M") 
-                $students = Student::all();  
+        $students = $user->students()->get();   
 
         return view('lessons.selectStudent', compact('user', 'students'));
     }

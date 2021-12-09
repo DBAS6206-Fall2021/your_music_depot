@@ -43,7 +43,7 @@ Route::post('/users/{user}/availability', 'InstructorAvailabilityController@upda
 
 // Lesson Routes
 Route::get('/lessons', 'LessonsController@index')->middleware('role:M');
-Route::get('/student/{user}', 'LessonsController@select')->middleware('role:C');;
+Route::get('/student/{user}', 'LessonsController@select');
 Route::get('/student/{student}/lesson/create', 'LessonsController@create');
 Route::post('/student/{student}/lesson/detailsA', 'LessonsController@detailsA');
 Route::post('/student/{student}/lesson/detailsB', 'LessonsController@detailsB');
