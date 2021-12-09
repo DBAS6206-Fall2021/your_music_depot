@@ -17,6 +17,8 @@
                 </tr>
                 @foreach($lessons as $lesson)
                     @foreach($lesson->students as $s)
+                    <form method="POST" action="/lesson/{{$lesson->id}}/destroy/">
+                        @csrf
                         <tr class="text-center">
                             <td>{{ $s->first_name . ' ' . $s->last_name }}</td>
                             <td>{{ $lesson->instrument->name }}</td>
@@ -26,9 +28,10 @@
                             <td>{{ $lesson->start_time }}</td>
                             <td>{{ $lesson->end_time }}</td>
                             <td></tdclass>
-                                <a href="/lesson/{{$lesson->id}}/destroy" class="btn btn-primary btn-block">Cancel</a>
+                            <button id="submitButton" type="submit" class="btn btn-primary btn-lg">Next</button>
                             </td>
                         </tr>
+                    </form>
                     @endforeach
                 @endforeach
             </tbody>

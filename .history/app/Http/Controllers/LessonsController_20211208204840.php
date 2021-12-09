@@ -268,7 +268,7 @@ class LessonsController extends Controller
         // Remove Instructors
         $lesson->users()->detach();
         // Remove Lesson
-        $lesson->delete();
+        DB::table('lessons')->where('id', $lesson->id);
 
         return redirect("/users/" . auth()->id());
     }

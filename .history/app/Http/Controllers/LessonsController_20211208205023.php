@@ -263,12 +263,12 @@ class LessonsController extends Controller
      */
     public function destroy(Lesson $lesson)
     {
-        // Remove Attendants
-        $lesson->students()->detach();
-        // Remove Instructors
-        $lesson->users()->detach();
-        // Remove Lesson
-        $lesson->delete();
+        // // Remove Attendants
+        // $lesson->students()->detach();
+        // // Remove Instructors
+        // $lesson->users()->detach();
+        // // Remove Lesson
+        // $lesson->delete();
 
         return redirect("/users/" . auth()->id());
     }

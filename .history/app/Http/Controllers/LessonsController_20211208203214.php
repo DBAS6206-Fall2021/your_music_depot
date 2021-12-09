@@ -6,7 +6,6 @@ use App\Instrument;
 use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Student;
 use App\InstructorAvailability;
@@ -268,8 +267,5 @@ class LessonsController extends Controller
         // Remove Instructors
         $lesson->users()->detach();
         // Remove Lesson
-        $lesson->delete();
-
-        return redirect("/users/" . auth()->id());
     }
 }
