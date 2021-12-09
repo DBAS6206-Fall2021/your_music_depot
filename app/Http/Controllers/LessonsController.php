@@ -152,12 +152,12 @@ class LessonsController extends Controller
 
                 foreach($lessonInRoom as $lesson)
                 {
-                    dump($lesson->start_time, $data->get('lessonStart'));
-                    dump($room);
+                    //dump($lesson->start_time, $data->get('lessonStart'));
+                    //dump($room);
                     if ($lesson->start_time != $data->get('lessonStart'))
                     {
                         if ($lesson->students()->count() < $item->capacity) { 
-                            dump($lesson->students()->count());
+                            //dump($lesson->students()->count());
 
                             $room = $item;
                         }
@@ -185,7 +185,7 @@ class LessonsController extends Controller
                 'end_time' => Carbon::parse($data->get('lessonStart'))->addHour()->toTimeString(),
             ]);
 
-            dump($lesson);
+            //dump($lesson);
 
         // Make the attendees
             $attendee = Attendee::create([
@@ -194,7 +194,7 @@ class LessonsController extends Controller
                 'is_withdrawn' => 0,
             ]);
 
-            dump($attendee);
+            //dump($attendee);
 
         // Make Lesson Instructor
             $instructor = LessonInstructor::create([
@@ -202,7 +202,7 @@ class LessonsController extends Controller
                 'lesson_id' => $lesson->id,
             ]);
 
-            dump($instructor);
+            //dump($instructor);
         }
 
         return redirect("/users/" . auth()->id());
