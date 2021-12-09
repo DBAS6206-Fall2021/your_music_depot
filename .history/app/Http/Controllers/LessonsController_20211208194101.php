@@ -107,12 +107,11 @@ class LessonsController extends Controller
             $start->addHour();
         }while($start < $end);
 
-        //dd($availability);
+        dd($availability);
 
         $data->put('instrument', $request->input('lessonInstrument'));
         $data->put('instructor', $request->input('lessonInstructor'));
         session(['data' => $data]);
-
         //dd($request->input('lessonInstructor'));
 
         // $this->data->concat(['instrument' => $request->input('instrument')]);
@@ -172,40 +171,46 @@ class LessonsController extends Controller
 
                 foreach($lessonInRoom as $lesson)
                 {
+                    //dd($lesson);
                     //dump($lesson->start_time, $data->get('lessonStart'));
-                    //dump($room);
-                    if ($lesson->start_time != $data->get('lessonStart'))
+                    if($lesson->start_time != $data->get('lessonStart'))
                     {
-                        if ($lesson->students()->count() < $item->capacity) { 
-                            //dump($lesson->students()->count());
-
+                        //dd($lesson->students()->count());
+                        if($lesson->students()->count() < $item->capacity)
+                        {
                             $room = $item;
+                            //dump($item);
+                            return false;
                         }
+                        else
+                        {
+                            //dump(false);
+                        }
+
                     }
                     else
                     {
-                        $room = null;
+                        dump($lesson->start_time, $data->get('lessonStart'));
+                        $room = $item;
                         return false;
                     }
                 }
                 
             });
 
-        //dd($room);
+            dd(false);
 
-        if ($room != null) 
-        {
         // Make the lesson
             $lesson = Lesson::create([
                 'room_number' => $room->id,
                 'instrument_id' => $data->get('instrument'),
-                'lesson_type_id' => $data->get('type') + 1,
+                'lesson_type_id' => $data->get('type') +1,
                 'date' => Carbon::parse($data->get('date'))->toDateString(),
                 'start_time' => $data->get('lessonStart'),
                 'end_time' => Carbon::parse($data->get('lessonStart'))->addHour()->toTimeString(),
             ]);
 
-            //dump($lesson);
+            dump($lesson);
 
         // Make the attendees
             $attendee = Attendee::create([
@@ -214,7 +219,7 @@ class LessonsController extends Controller
                 'is_withdrawn' => 0,
             ]);
 
-            //dump($attendee);
+            dump($attendee);
 
         // Make Lesson Instructor
             $instructor = LessonInstructor::create([
@@ -222,10 +227,8 @@ class LessonsController extends Controller
                 'lesson_id' => $lesson->id,
             ]);
 
-            //dump($instructor);
-        }
+            dump($instructor);
 
-        return redirect("/users/" . auth()->id());
     }
 
 
