@@ -31,7 +31,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-center">
-            <a href="/student/create" class="btn btn-primary btn-block col-sm-5">
+            <a href="/student/create" class="btn btn-primary btn-block">
                 Add New Student
             </a>
         </div>
