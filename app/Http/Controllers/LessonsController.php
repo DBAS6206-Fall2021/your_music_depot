@@ -22,9 +22,16 @@ class LessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        //
+        if (Auth::user()->cant('view', $user))
+            return redirect('/home');
+
+        $students = Student::all();
+        $lessons = Lesson::all()->where('date', ">=", Carbon::Today()->toDateString());     
+
+            
+        return view('lessons.index', compact('user', 'students', 'lessons'));
     }
 
     /**
@@ -35,6 +42,21 @@ class LessonsController extends Controller
     public function create(Student $student)
     {
         return view('lessons.create', compact('student'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function select(User $user)
+    {
+        if (Auth::user()->cant('view', $user))
+            return redirect('/home');
+
+        $students = $user->students()->get();   
+
+        return view('lessons.selectStudent', compact('user', 'students'));
     }
 
     public function detailsA(Request $request, Student $student)
