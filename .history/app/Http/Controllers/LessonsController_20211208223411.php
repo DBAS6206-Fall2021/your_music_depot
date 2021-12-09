@@ -56,7 +56,7 @@ class LessonsController extends Controller
             if(Auth::user()->type() === "C")
                 $students = $user->students()->get(); 
             elseif(Auth::user()->type() === "M") 
-                $students = Student::all();  
+                $students = Lesson::all()->get();  
 
         return view('lessons.selectStudent', compact('user', 'students'));
     }

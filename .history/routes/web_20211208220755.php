@@ -42,8 +42,8 @@ Route::get('/users/{user}/availability/edit', 'InstructorAvailabilityController@
 Route::post('/users/{user}/availability', 'InstructorAvailabilityController@update');
 
 // Lesson Routes
-Route::get('/lessons', 'LessonsController@index')->middleware('role:M');
-Route::get('/student/{user}', 'LessonsController@select')->middleware('role:C');;
+Route::get('/lessons', 'LessonsController@index')->middleware('role', 'm');
+Route::get('/student/{user}', 'LessonsController@select');
 Route::get('/student/{student}/lesson/create', 'LessonsController@create');
 Route::post('/student/{student}/lesson/detailsA', 'LessonsController@detailsA');
 Route::post('/student/{student}/lesson/detailsB', 'LessonsController@detailsB');
