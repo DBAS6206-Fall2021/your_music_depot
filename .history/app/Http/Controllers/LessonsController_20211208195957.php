@@ -176,6 +176,8 @@ class LessonsController extends Controller
                 
             });
 
+        //dd($room);
+
         if ($room != null) 
         {
         // Make the lesson
@@ -202,8 +204,6 @@ class LessonsController extends Controller
             ]);
 
         }
-
-        $request->session()->forget('data');
 
         return redirect("/users/" . auth()->id());
     }

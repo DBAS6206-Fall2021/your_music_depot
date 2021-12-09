@@ -203,8 +203,6 @@ class LessonsController extends Controller
 
         }
 
-        $request->session()->forget('data');
-
         return redirect("/users/" . auth()->id());
     }
 
