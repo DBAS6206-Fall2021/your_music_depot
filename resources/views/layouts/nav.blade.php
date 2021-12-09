@@ -13,12 +13,16 @@
                         <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/lessons/create">Book a lesson</a>
-                        </li>
                         @auth
                             <li class="nav-item">
+                                <a class="nav-link" href="/student/{{ Auth::user()->id }}">Book a lesson</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="/users/{{ Auth::user()->id }}">Dashboard</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Book a lesson</a>
                             </li>
                         @endauth
                 </ul>           

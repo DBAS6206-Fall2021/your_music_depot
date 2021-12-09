@@ -25,9 +25,6 @@
                         <div>
                             <a href="/student/{{$student->id}}/lesson/create" class="btn btn-primary btn-block">Book</a>
                         </div>
-                        <div>
-                            <a href="/student/remove/{{$student->id}}" class="btn btn-primary btn-block">Remove</a>
-                        </div>
                     </td>
                 </tr>
                 @endforeach

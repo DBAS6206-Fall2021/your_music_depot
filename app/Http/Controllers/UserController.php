@@ -51,6 +51,8 @@ class UserController extends Controller
                 }     
             }
         }
+
+        $lessons = $lessons->sortBy('date')->values()->all();
             
         return view('users.show', compact('user', 'students', 'lessons'));
     }

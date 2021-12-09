@@ -40,7 +40,7 @@ $days = [
 
                     @foreach ($days as $day)
                         @if (($a = $availability->firstWhere('weekday', $day)) != null)
-                            @if($a->start_availability <= $i.':00:00' and $a->end_availability >= $i.':00:00')
+                            @if($a->start_availability <= $i.':00:00' and $a->end_availability > $i.':00:00')
                                 <td class="bg-secondary" rowspan="1"></td>
                             @else
                                 <td class="no-event" rowspan="1"></td>

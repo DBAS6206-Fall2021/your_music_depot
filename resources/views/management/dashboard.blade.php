@@ -13,7 +13,7 @@
                 <a class="btn btn-primary btn-block" href="#">Students</a>
             </div>
             <div class="m-2">
-                <a class="btn btn-primary btn-block" href="#">Lessons</a>
+                <a class="btn btn-primary btn-block" href="/lessons/{{ Auth::user()->id }}">Lessons</a>
             </div>
         </div>
     </div>
