@@ -152,40 +152,34 @@ class LessonsController extends Controller
 
                 foreach($lessonInRoom as $lesson)
                 {
-                    //dd($lesson);
-                    //dump($lesson->start_time, $data->get('lessonStart'));
-                    if($lesson->start_time != $data->get('lessonStart'))
+                    dump($lesson->start_time, $data->get('lessonStart'));
+                    dump($room);
+                    if ($lesson->start_time != $data->get('lessonStart'))
                     {
-                        //dd($lesson->students()->count());
-                        if($lesson->students()->count() < $item->capacity)
-                        {
-                            $room = $item;
-                            //dump($item);
-                            return false;
-                        }
-                        else
-                        {
-                            //dump(false);
-                        }
+                        if ($lesson->students()->count() < $item->capacity) { 
+                            dump($lesson->students()->count());
 
+                            $room = $item;
+                        }
                     }
                     else
                     {
-                        dump($lesson->start_time, $data->get('lessonStart'));
-                        $room = $item;
+                        $room = null;
                         return false;
                     }
                 }
                 
             });
 
-            dd(false);
+        //dd($room);
 
+        if ($room != null) 
+        {
         // Make the lesson
             $lesson = Lesson::create([
                 'room_number' => $room->id,
                 'instrument_id' => $data->get('instrument'),
-                'lesson_type_id' => $data->get('type') +1,
+                'lesson_type_id' => $data->get('type') + 1,
                 'date' => Carbon::parse($data->get('date'))->toDateString(),
                 'start_time' => $data->get('lessonStart'),
                 'end_time' => Carbon::parse($data->get('lessonStart'))->addHour()->toTimeString(),
@@ -209,7 +203,9 @@ class LessonsController extends Controller
             ]);
 
             dump($instructor);
+        }
 
+        return redirect("/users/" . auth()->id());
     }
 
 
