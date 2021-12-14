@@ -21,7 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 
 // User Routes
-Route::get('/users', 'UserController@index');
 Route::get('/users/{user}', 'UserController@show');
 Route::get('/users/edit/{user}', 'UserController@edit');
 Route::post('/users/edit/{user}', 'UserController@update');
@@ -30,6 +29,7 @@ Route::post('/users/edit/{user}', 'UserController@update');
 
 
 // Student Routes
+Route::get('/students', 'StudentsController@index')->middleware('role:M');
 Route::get('/student/create', 'StudentsController@create');
 Route::post('/student/create', 'StudentsController@store');
 Route::get('/student/edit/{student}', 'StudentsController@edit');
@@ -37,9 +37,11 @@ Route::post('/student/edit/{student}', 'StudentsController@update');
 Route::get('/student/remove/{student}', 'StudentsController@destroy');
 
 // Instructor Routes
+Route::get('/instructors', 'UserController@index')->middleware('role:M');
 Route::get('/users/{user}/availability', 'InstructorAvailabilityController@show');
 Route::get('/users/{user}/availability/edit', 'InstructorAvailabilityController@edit');
 Route::post('/users/{user}/availability', 'InstructorAvailabilityController@update');
+Route::get('/users/{user}/lessons', 'UserController@lessons');
 
 // Lesson Routes
 Route::get('/lessons', 'LessonsController@index')->middleware('role:M');

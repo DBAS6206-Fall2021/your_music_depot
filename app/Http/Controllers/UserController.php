@@ -18,9 +18,26 @@ class UserController extends Controller
     public function index()
     {
         //$users = User::all();
-        $users= User::orderBy('last_name', 'desc')->get();
+        $users = User::where('user_type_id', 2)->orderBy('last_name', 'desc')->get();
 
-        return view('users.index', compact('users'));
+        return view('instructors.index', compact('users'));
+    }
+
+    public function lessons(User $user)
+    {
+        if (Auth::user()->cant('view', $user))
+            return redirect('/home');
+
+        $lessons = $user->lessons()->get();
+
+        $students = collect([]);
+        foreach ($lessons as $lesson) {
+            foreach ($lesson->students()->get() as $student) {
+                $students->push($student);
+            }
+        }
+
+        return view('instructors.lessons', compact('user', 'students', 'lessons'));
     }
 
     /**

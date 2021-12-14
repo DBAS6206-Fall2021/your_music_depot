@@ -14,7 +14,7 @@ $days = [
 @section('content')
 <div class="justify-content-center">
     @include('shared.banner')
-    @include('instructor.dashboard')
+    @include('instructors.dashboard')
     <div class="bg-white d-flex">
         <div class="m-6 ml-auto">
             <a class="btn btn-primary btn-block" href="/users/{{$user->id}}/availability/edit">Edit Availability</a>
