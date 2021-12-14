@@ -13,7 +13,7 @@ $days = [
         ];
 @endphp
     @include('shared.banner')
-    @include('instructor.dashboard')
+    @include('instructors.dashboard')
     <div class="d-block-flex justify-content-center bg-white m-0 p-0">
         <form method="POST" action="/users/{{$user->id}}/availability">
             <table class="table align-center">

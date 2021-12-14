@@ -9,9 +9,9 @@
                 @if($user->type() == 'M')
                     @include('management.dashboard')
                 @elseif($user->type() == 'I')
-                    @include('instructor.dashboard')
+                    @include('instructors.dashboard')
                 @elseif($user->type() == 'C')
-                    @include('client.dashboard')
+                    @include('clients.dashboard')
                 @endif
             </div>
             
