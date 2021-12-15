@@ -27,7 +27,7 @@
                             <td>{{ $lesson->date }}</td>
                             <td>{{ $lesson->start_time }}</td>
                             <td>{{ $lesson->end_time }}</td>
-                            <td></tdclass>
+                            <td>
                                 <a href="/lesson/{{$lesson->id}}/destroy" class="btn btn-primary btn-block">Cancel</a>
                             </td>
                         </tr>

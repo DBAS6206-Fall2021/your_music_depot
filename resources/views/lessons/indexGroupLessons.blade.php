@@ -14,7 +14,6 @@
             <table class="table table-sm table-striped">
                 <tbody>
                     <tr  class="text-center">
-                        <th width="8%">Capacity</th>
                         <th>Instrument</th>
                         <th>Instructor</th>
                         <th width="8%">Room Number</th>
@@ -25,7 +24,6 @@
                     </tr>
                     @foreach($lessons as $lesson)
                         <tr class="text-center">
-                            <td>{{ $lesson->room }}</td>
                             <td>{{ $lesson->instrument->name }}</td>
                             <td>{{ $lesson->users->first()->first_name . ' ' . $lesson->users->first()->last_name }}</td>
                             <td>{{ $lesson->room_number }}</td>
@@ -33,7 +31,7 @@
                             <td>{{ $lesson->start_time }}</td>
                             <td>{{ $lesson->end_time }}</td>
                             <td>
-                                <a href="/lesson/{{$lesson->id}}/destroy" class="btn btn-primary btn-block">Join</a>
+                                <a href="/student/{{$student->id}}/lesson/{{$lesson->id}}/join" class="btn btn-primary btn-block">Join</a>
                             </td>
                         </tr>
                     @endforeach

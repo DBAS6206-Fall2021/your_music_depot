@@ -48,6 +48,7 @@ Route::get('/lessons', 'LessonsController@index')->middleware('role:M');
 Route::get('/student/{user}', 'LessonsController@select')->middleware('role:C');
 Route::get('/student/{student}/lesson/create', 'LessonsController@create');
 Route::get('/student/{student}/group/join', 'LessonsController@indexGroupLessons');
+Route::get('/student/{student}/lesson/{lesson}/join', 'LessonsController@joinGroupLesson');
 Route::post('/student/{student}/lesson/detailsA', 'LessonsController@detailsA');
 Route::post('/student/{student}/lesson/detailsB', 'LessonsController@detailsB');
 Route::post('/student/{student}/lesson/detailsC', 'LessonsController@detailsC');
