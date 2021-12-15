@@ -243,9 +243,15 @@ class LessonsController extends Controller
 
         foreach ($allLessons as $lesson) {
             $room = DB::table("Rooms")->where('id', $lesson->room_number)->first();
-            // TODO: check this student is not already attending
 
-            if ($lesson->lessonType->type == "Group" && $lesson->students()->count() < $room->capacity) {
+            $isAttending = DB::table("attendees")->where([
+                ['student_id', '=', $student->id],
+                ['lesson_id', '=', $lesson->id],
+            ])->get();
+
+            //dd($isAttending);
+
+            if ($lesson->lessonType->type == "Group" && $lesson->students()->count() < $room->capacity && $isAttending->isEmpty()) {
                 $lessons->push($lesson);
             }
         }
