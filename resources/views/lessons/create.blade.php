@@ -42,7 +42,15 @@
             <div class="text-right">
                 <button id="submitButton" type="submit" class="btn btn-primary btn-lg">Next</button>
             </div>
+            <br>
         </form>
+
+        <p>
+            You can add {{ $student->first_name . ' ' . $student->last_name }} to an existing group lesson instead.
+        </p>
+        <div class="text-right">
+            <a href="/student/{{ $student->id }}/group/join" id="btnJoinGroupLessons" class="btn btn-primary btn-lg">Join Group Lesson</a>
+        </div>
     </div>
 </div>
 @endsection

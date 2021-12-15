@@ -232,6 +232,28 @@ class LessonsController extends Controller
         return redirect("/users/" . auth()->id());
     }
 
+    /**
+     * Show all group lessons in the future
+     */
+    public function indexGroupLessons(Student $student)
+    {
+        $lessons = Lesson::all()->where('date', ">=", Carbon::Today()->toDateString());
+
+        $groupLessons = collect([]);
+
+        foreach ($lessons as $lesson) {
+            //dd($lesson->lessonType->type);
+            if ($lesson->lessonType->type == "Group") {
+                $groupLessons->push($lesson);
+            }
+        }
+
+
+        //dd($groupLessons);
+        //dd($lessons->first()->room()->room);
+        return view('lessons.indexGroupLessons', compact('student', 'lessons'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
