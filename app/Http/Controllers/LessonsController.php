@@ -232,6 +232,47 @@ class LessonsController extends Controller
         return redirect("/users/" . auth()->id());
     }
 
+    /**
+     * Show all group lessons in the future
+     */
+    public function indexGroupLessons(Student $student)
+    {
+        $allLessons = Lesson::all()->where('date', ">=", Carbon::Today()->toDateString());
+
+        $lessons = collect([]);
+
+        foreach ($allLessons as $lesson) {
+            $room = DB::table("Rooms")->where('id', $lesson->room_number)->first();
+
+            $isAttending = DB::table("attendees")->where([
+                ['student_id', '=', $student->id],
+                ['lesson_id', '=', $lesson->id],
+            ])->get();
+
+            //dd($isAttending);
+
+            if ($lesson->lessonType->type == "Group" && $lesson->students()->count() < $room->capacity && $isAttending->isEmpty()) {
+                $lessons->push($lesson);
+            }
+        }
+
+        return view('lessons.indexGroupLessons', compact('student', 'lessons'));
+    }
+
+    /**
+     * Add a student to existing lesson attendees
+     */
+    public function joinGroupLesson(Student $student, Lesson $lesson)
+    {
+        // Make the attendees
+        $attendee = Attendee::create([
+            'lesson_id' => $lesson->id,
+            'student_id' => $student->id,
+            'is_withdrawn' => 0,
+        ]);
+
+        return redirect("/users/" . auth()->id());
+    }
 
     /**
      * Store a newly created resource in storage.

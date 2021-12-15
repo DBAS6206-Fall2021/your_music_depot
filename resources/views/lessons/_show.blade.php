@@ -16,8 +16,8 @@
                     <th>Ends</th>
                     <th>Cancel Lessons</th>
                 </tr>
-                @foreach($lessons as $lesson)
-                    @foreach($lesson->students as $s)
+                @foreach($students as $s)
+                    @foreach($s->lessons as $lesson)
                         <tr class="text-center">
                             <td>{{ $s->first_name . ' ' . $s->last_name }}</td>
                             <td>{{ $lesson->lessonType->type }}</td>
@@ -27,7 +27,7 @@
                             <td>{{ $lesson->date }}</td>
                             <td>{{ $lesson->start_time }}</td>
                             <td>{{ $lesson->end_time }}</td>
-                            <td></tdclass>
+                            <td>
                                 <a href="/lesson/{{$lesson->id}}/destroy" class="btn btn-primary btn-block">Cancel</a>
                             </td>
                         </tr>
