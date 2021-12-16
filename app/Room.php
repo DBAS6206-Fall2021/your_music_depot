@@ -20,7 +20,7 @@ class Room extends Model
     // Each Room may be used my multiple lessons
     public function lessons()
     {
-        return $this->hasMany(Lesson::class, 'room_number');
+        return $this->hasMany(Lesson::class, 'id');
     }
 
     // Each room has 1 room type
