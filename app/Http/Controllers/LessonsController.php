@@ -249,8 +249,6 @@ class LessonsController extends Controller
                 ['lesson_id', '=', $lesson->id],
             ])->get();
 
-            //dd($isAttending);
-
             if ($lesson->lessonType->type == "Group" && $lesson->students()->count() < $room->capacity && $isAttending->isEmpty()) {
                 $lessons->push($lesson);
             }
@@ -325,14 +323,15 @@ class LessonsController extends Controller
      * @param  \App\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lesson $lesson)
+    public function destroy(Lesson $lesson, Student $student)
     {
         // Remove Attendants
-        $lesson->students()->detach();
-        // Remove Instructors
-        $lesson->users()->detach();
-        // Remove Lesson
-        $lesson->delete();
+        $lesson->students()->detach($student->id);
+
+        if ($lesson->students()->count() == 0) {
+            $lesson->users()->detach();
+            $lesson->delete();
+        }
 
         return redirect("/users/" . auth()->id());
     }

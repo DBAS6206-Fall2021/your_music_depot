@@ -55,7 +55,7 @@ Route::post('/student/{student}/lesson/detailsC', 'LessonsController@detailsC');
 
 
 // Lesson Notes
-Route::get('/lesson/{lesson}/destroy', 'LessonsController@destroy');
+Route::get('/lesson/{lesson}/destroy/{student}', 'LessonsController@destroy');
 
 
 // Instrument Skills
