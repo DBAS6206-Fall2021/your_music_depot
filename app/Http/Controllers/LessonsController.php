@@ -51,7 +51,7 @@ class LessonsController extends Controller
     public function select(User $user)
     {
         if (Auth::user()->cant('view', $user))
-            return redirect('/home');
+            return redirect('/');
 
             if(Auth::user()->type() === "C")
                 $students = $user->students()->get(); 

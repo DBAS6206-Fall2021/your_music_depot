@@ -46,7 +46,7 @@ class InstructorAvailabilityController extends Controller
     public function edit(User $user)
     {
         if (Auth::user()->cant('view', $user))
-            return redirect('/home');
+            return redirect('/');
 
         $availability = $user->instructorAvailability()->get();
 
@@ -65,7 +65,7 @@ class InstructorAvailabilityController extends Controller
     public function update(Request $request, User $user)
     {
         if (Auth::user()->cant('view', $user))
-            return redirect('/home');
+            return redirect('/');
 
             $this->validate(request(), [
                 'Sunday.start' => ['sometimes', 'nullable','required_with:Sunday.end','date_format:H:i:s', 'before:Sunday.end'],
