@@ -121,7 +121,7 @@ class UserController extends Controller
             'address' => $request->address,
         ]);
 
-        return redirect('/users/'.$user->id);
+        return redirect('/users/$user->id');
     }
 
     /**

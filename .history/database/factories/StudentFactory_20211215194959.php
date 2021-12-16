@@ -6,13 +6,14 @@ use App\User as User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
-$factory->define(Student::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     static $password;
 
-    $clients = User::where('user_type_id', 3)->pluck("id")->toArray();
-
+    $instructors = Users
     return [
-        'user_id' => $faker->randomElement($clients),
+        'user_id' => function () {
+            return factory(App\User::class)->create()->id;
+        },
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
     ];
