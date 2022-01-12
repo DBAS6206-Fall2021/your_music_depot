@@ -1,3 +1,7 @@
+Collaborators: Calvin May, Eduardo San Martin Celi, Lucas Mawdsley, Tom Zielinski
+
+A web app and database system that allows for booking music lessons and scheduling availability, made in Laravel (PHP) and MySQL
+
 Website(hosted on Heroku): https://your-music-depot.herokuapp.com/
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
